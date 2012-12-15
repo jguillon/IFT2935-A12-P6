@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class SuiviMedicalActivity extends Activity {
     /** Called when the activity is first created. */
-    @Override
+    @Override //Test 1, 2
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
