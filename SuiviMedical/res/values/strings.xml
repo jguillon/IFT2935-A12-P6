@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="hello">Hello World, SuiviMedicalActivity!</string>
+    <string name="app_name">SuiviMedical</string>
+    <string name="viewUserName">Nom d\'usager</string>
+    <string name="viewPassword">Mot de passe</string>
+    <string name="bDossierP">Dossier Médical</string>
+    <string name="bReportP">Envoyer information</string>
+    <string name="bDrugsP">Médicaments</string>
+    <string name="bSkypeP">Skype</string>
+    <string name="bAlertP">Urgence</string>
+    <string name="Description">Description</string>
+    <string name="hintReport">Écrivez votre rapport ici</string>
+    <string name="viewQuantity">"Quantité : "</string>
+    <string name="viewFrequency">"Fréquence : "</string>
+    <string name="viewDaysLeft">Jours restants</string>
+    <string name="add">+</string>
+    <string name="addPatient">Ajouter un patient</string>
+    <string name="textEvent">Événements actifs</string>
+    <string name="textEventOver">Événements fermés</string>
+    <string name="visualize">Visualiser</string>
+    <string name="addReportDoc">Ajouter un rapport</string>
+    <string name="prescribe">Prescrire</string>
+    <string name="action">Demander une action</string>
+    <string name="diagnosis">Diagnostique(s)</string>
+    <string name="closeEvent">Fermer l\'événement</string>
+    <string name="status">Status</string>
+    <string name="diagnose">Diagnostique</string>
+    <string name="hintDiagnosis">Écrivez votre diagnostique complet ici</string>
+    <string name="blood">Prise de sang</string>
+    <string name="urinalysis">Analyse d\'urine</string>
+    <string name="xray">Rayons X</string>
+    <string name="biopsy">Biopsie</string>
+    <string name="glucose">Glycémie</string>
+    <string name="psy">Évaluation psychologique</string>
+    <string name="connect">Connection</string>
+    <string name="openDate">Date d\'ouverture :</string>
+    <string name="closedDate">Date de fermeture :</string>
+</resources>

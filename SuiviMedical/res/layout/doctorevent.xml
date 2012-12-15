@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    /*setTitle("Nom du patient");*/
+
+    <TextView
+        android:id="@+id/descEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" android:layout_weight="1">
+
+        <Button
+            android:id="@+id/visualize"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/visualize" android:layout_weight="1" android:gravity="bottom|center" android:textSize="15dp"/>
+
+        <Button
+            android:id="@+id/addReport"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/addReportDoc" android:layout_weight="1" android:gravity="bottom|center" android:textSize="15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" android:layout_weight="1">
+
+        <Button
+            android:id="@+id/prescribe"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/prescribe" android:layout_weight="1" android:gravity="bottom|center" android:textSize="15dp"/>
+
+        <Button
+            android:id="@+id/action"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/action" android:layout_weight="1" android:gravity="bottom|center" android:textSize="15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" android:layout_weight="1">
+
+        <Button
+            android:id="@+id/diagnosis"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/diagnosis" android:layout_weight="1" android:gravity="bottom|center" android:textSize="15dp"/>
+
+        <Button
+            android:id="@+id/closeEvent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/closeEvent" android:layout_weight="1" android:gravity="bottom|center" android:textSize="15dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
