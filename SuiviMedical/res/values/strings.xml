@@ -5,7 +5,7 @@
     <string name="viewUserName">Nom d\'usager</string>
     <string name="viewPassword">Mot de passe</string>
     <string name="bDossierP">Dossier Médical</string>
-    <string name="bReportP">Envoyer information</string>
+    <string name="bReportP">Envoyer informations</string>
     <string name="bDrugsP">Médicaments</string>
     <string name="bSkypeP">Skype</string>
     <string name="bAlertP">Urgence</string>
@@ -36,4 +36,11 @@
     <string name="connect">Connection</string>
     <string name="openDate">Date d\'ouverture :</string>
     <string name="closedDate">Date de fermeture :</string>
+    <string name="order">Commander le médicament</string>
+    <string name="confirm">Confirmer la prise du médicament</string>
+    <string name="all">Tous</string>
+    <string name="report">Rapport(s)</string>
+    <string name="prescription">Prescription(s)</string>
+    <string name="search">Chercher un médicament</string>
+    <string name="confirmed">Prise confirmé</string>
 </resources>
