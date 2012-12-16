@@ -10,7 +10,7 @@ import android.widget.ListView;
  * Page listant les évènements (actifs ou non) du patient sélectionné à la
  * page précédente.
  * @author Jérémy
- *
+ * @version 0.5.0
  */
 public class DoctorPatientEventList extends Activity {
 	
