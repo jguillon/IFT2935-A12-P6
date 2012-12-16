@@ -15,7 +15,7 @@ import android.widget.ListView;
 public class DoctorPatientEventList extends Activity {
 	
 	private Intent i;
-	private String pName;
+	private String pName;					//Patient Name
 	private String[] oEList, cEList;
 	private ListView oELView, cELView;
 	private ArrayAdapter<String> oELAdapter, cELAdapter;
