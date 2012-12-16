@@ -25,16 +25,13 @@ public class GraphActivity extends Activity implements OnItemSelectedListener,
 
 	public Spinner spinner;
 	RadioGroup buttongroup;
-	boolean semaine;
+	boolean semaine = true;
 	String type = "Temperature";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.graphmain);
-		
-		LinearLayout layout = (LinearLayout) findViewById(R.id.graph1);
-		layout.addView(createGraph(type));
 		
 		// setting the spinner for the different vital signs
 		spinner = (Spinner) findViewById(R.id.spinnerValeurs);
@@ -47,7 +44,7 @@ public class GraphActivity extends Activity implements OnItemSelectedListener,
 
 		buttongroup = (RadioGroup) findViewById(R.id.time_buttons);
 		RadioButton btn = (RadioButton) findViewById(R.id.semaine);
-		btn.setSelected(true);
+		btn.setChecked(true); 
 		RadioButton btn2 = (RadioButton) findViewById(R.id.annee);
 
 		btn.setOnClickListener(this);
@@ -66,14 +63,15 @@ public class GraphActivity extends Activity implements OnItemSelectedListener,
 		// find the radiobutton by returned id
 		Button btn = (RadioButton) findViewById(selectedId);
 
-		if (btn.getText().equals("semaine")) {
+		if (btn.getText().equals("derniere semaine")) {
 
 			semaine = true;
-
+	
 		} else {
 			semaine = false;
 
 		}
+
 		update(type);
 
 	}
@@ -82,11 +80,9 @@ public class GraphActivity extends Activity implements OnItemSelectedListener,
 	public void onItemSelected(AdapterView<?> parent, View view, int pos,
 			long id) {
 		String item = spinner.getSelectedItem().toString();
-		if (item.equals("Temperature")) { // || etc
-			type = item;
-			update(item);
-		}
-
+		type = item;
+		update(type);
+		
 	}
 
 	@Override
@@ -99,21 +95,24 @@ public class GraphActivity extends Activity implements OnItemSelectedListener,
 	public void update(String type) {
 
 		LinearLayout layout = (LinearLayout) findViewById(R.id.graph1);
+		LinearLayout graph = new LinearLayout(this); 
 		try {
-			layout.removeViewAt(0);
+			layout.removeAllViewsInLayout();
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//ViewParent view = layout.getParent();
-		//((ViewGroup) view).removeView(layout);
-		layout.addView(createGraph(type));
+		graph.addView(createGraph(type));
+		layout.invalidate();
+		layout.addView(graph);
+
 	}
 
 	public GraphView createGraph(String type) {
 		String title = "";
-		GraphViewSeries example = null;
+		GraphViewSeries example = new GraphViewSeries(new GraphViewData[] {});
+
 
 		if (type.equals("Temperature")) {
 			title = "Temperature en ¡C";
@@ -128,11 +127,20 @@ public class GraphActivity extends Activity implements OnItemSelectedListener,
 
 
 			title = "Taux de glucose en g/L";
+			
+			if (semaine) {
 			example = new GraphViewSeries(new GraphViewData[] {
 					new GraphViewData(1, 1.13), new GraphViewData(2, 1.31),
 					new GraphViewData(3, 1.03), new GraphViewData(4, 1.00),
 					new GraphViewData(5, 0.98) });
-
+			}else {
+				example = new GraphViewSeries(new GraphViewData[] {
+						new GraphViewData(1, 2.13), new GraphViewData(2, 1.31),
+						new GraphViewData(3, 3.03), new GraphViewData(4, 1.00),
+						new GraphViewData(5, 1.98) });
+				
+				
+			}
 		}
 
 			GraphView graphView = new LineGraphView(this, title);
