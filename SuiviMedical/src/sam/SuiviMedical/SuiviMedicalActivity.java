@@ -17,8 +17,8 @@ public class SuiviMedicalActivity extends Activity {
         
         connect.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
-				Intent doc = new Intent(view.getContext(), DoctorPatientList.class);
-				startActivity(doc);
+				Intent patient = new Intent(view.getContext(), PatientMain.class);
+				startActivity(patient);
 			}
         });
     }

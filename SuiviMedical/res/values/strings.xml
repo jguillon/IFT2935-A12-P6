@@ -43,4 +43,17 @@
     <string name="prescription">Prescription(s)</string>
     <string name="search">Chercher un médicament</string>
     <string name="confirmed">Prise confirmé</string>
+    <string name="info">Type d\'information</string>
+    <string name="ok">Confirmer</string>
+    <string name="cancel">Annuler</string>
+    
+    <string-array name="info_array">
+        <item>Rythme Cardiaque</item>
+        <item>Pression sanguine</item>
+        <item>Rythme Respiratoire</item>
+        <item>Glycémie</item>
+        <item>Température</item>
+        <item>Saturation O2</item>
+        <item>Poids</item>
+    </string-array>
 </resources>
