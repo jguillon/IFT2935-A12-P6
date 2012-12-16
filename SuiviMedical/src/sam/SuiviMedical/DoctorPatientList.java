@@ -31,8 +31,9 @@ public class DoctorPatientList extends Activity {
         //Paramétrisation
         patientListView.setAdapter(adapter);
         patientListView.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> arg0, View view, int arg2, long arg3) {
+			public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
 				Intent doc = new Intent(view.getContext(), DoctorPatientEventList.class);
+				doc.putExtra("sam.DocotPatientEventList.patientName", patientList[pos]);
 				startActivity(doc);
 			}        	
         });
