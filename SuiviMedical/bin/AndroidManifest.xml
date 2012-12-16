@@ -19,7 +19,48 @@
             </intent-filter>
         </activity>
         
-        <activity android:name="sam.SuiviMedical.DoctorPatientList"></activity>
+        <activity android:name="sam.SuiviMedical.DoctorPatientList">
+                    <intent-filter>
+                        <action android:name="sam.SuiviMedical.DoctorPatientList" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity android:name="sam.SuiviMedical.PatientMainActivity">
+                    <intent-filter>
+                        <action android:name="sam.SuiviMedical.PatientMainActivity" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity android:name="sam.SuiviMedical.PatientFile">
+                    <intent-filter>
+                        <action android:name="sam.SuiviMedical.Patientfile" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity android:name="sam.SuiviMedical.PatientSendInfos">
+                    <intent-filter>
+                        <action android:name="sam.SuiviMedical.PatientSendInfos" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity android:name="sam.SuiviMedical.PatientSkype">
+                    <intent-filter>
+                        <action android:name="sam.SuiviMedical.PatientSkype" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+                <activity android:name="sam.SuiviMedical.PatientMeds">
+                    <intent-filter>
+                        <action android:name="sam.SuiviMedical.PatientMeds" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+                <activity android:name="sam.SuiviMedical.PatientEvent">
+                    <intent-filter>
+                        <action android:name="sam.SuiviMedical.PatientEvent" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
     </application>
 
 </manifest>
