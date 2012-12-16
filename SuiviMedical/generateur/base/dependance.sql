@@ -1,0 +1,2 @@
+INSERT INTO Dependance
+ VALUES ('ALLA16312275','DESA32800793','Husband');
