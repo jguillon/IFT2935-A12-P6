@@ -36,4 +36,20 @@
     <string name="connect">Connection</string>
     <string name="openDate">Date d\'ouverture :</string>
     <string name="closedDate">Date de fermeture :</string>
+    
+            <string-array name="signesVitaux_array">
+        <item>Temperature</item>
+        <item>Taux de glucose</item>
+        <item>Pression diastolique</item>
+        <item>Pression systolique</item>
+        <item>Frequence respiratoire</item>
+        <item>Frequence cardiaque</item>
+        <item>IMC</item>
+        <item>Saturation O2</item>
+
+    </string-array>
+    
+    <string name="title_valeurs">Signes vitaux</string> 
+    <string name="text_semaine">derniere semaine</string>
+	<string name="text_annee">derniere annee</string>
 </resources>
