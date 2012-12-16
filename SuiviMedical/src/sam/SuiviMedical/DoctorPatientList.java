@@ -5,6 +5,9 @@ import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -24,5 +27,11 @@ public class DoctorPatientList extends Activity {
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, patientList);
         patientListView.setAdapter(adapter);
+        patientListView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				
+			}        	
+        });
 	}
 }
