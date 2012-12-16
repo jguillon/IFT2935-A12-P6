@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class DossierMain extends Activity {
 	
@@ -24,7 +25,8 @@ public class DossierMain extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.doctormainview);
+        setContentView(R.layout.doctorvisualize);
+        
         
         /**Probablement nécessaire*/
         radioC = (RadioGroup) findViewById(R.id.radioChoices);
@@ -36,7 +38,7 @@ public class DossierMain extends Activity {
         
         switch (choixRadio) {
         case RB1_ID:
-            // the first RadioButton is checked.
+        	// the first RadioButton is checked.
         break;
             //other checks for the other RadioButtons ids from the RadioGroup
         

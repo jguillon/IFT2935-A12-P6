@@ -35,14 +35,14 @@ public class PatientMain extends Activity {
         
         report.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
-				Intent report = new Intent(view.getContext(), DossierMain.class);
+				Intent report = new Intent(view.getContext(), SendInfo.class);
 				startActivity(report);
 				}
         });
         
         drugs.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
-				Intent drugs = new Intent(view.getContext(), DossierMain.class);
+				Intent drugs = new Intent(view.getContext(), DrugsMain.class);
 				startActivity(drugs);
 				}
         });

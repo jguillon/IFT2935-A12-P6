@@ -18,7 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+        <activity android:name="sam.SuiviMedical.DrugsMain"></activity>
+        <activity android:name="sam.SuiviMedical.PatientMain"></activity>
+        <activity android:name="sam.SuiviMedical.SendInfo"></activity>
+        <activity android:name="sam.SuiviMedical.DossierMain"></activity>
         <activity android:name="sam.SuiviMedical.DoctorPatientList"></activity>
     </application>
 
