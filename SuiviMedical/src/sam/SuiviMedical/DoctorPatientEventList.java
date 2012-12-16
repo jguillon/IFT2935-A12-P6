@@ -15,28 +15,29 @@ import android.widget.ListView;
 public class DoctorPatientEventList extends Activity {
 	
 	private Intent i;
-	private String patientName;
-	private String[] openEventsList, closedEventsList;
-	private ListView openEventsListView, closedEventsListView;
-	private ArrayAdapter<String> openEventsListAdapter, closedEventsListAdapter;
+	private String pName;
+	private String[] oEList, cEList;
+	private ListView oELView, cELView;
+	private ArrayAdapter<String> oELAdapter, cELAdapter;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.doctoreventlist);
-		
+		//==========Initialisations==========
 		//On récupère l'intent qui a lancé cette activité.
 		i = getIntent();
 		//On va chercher dans ses extras, le nom qu'on avait stocké.
-		patientName = i.getStringExtra("sam.DocotPatientEventList.patientName");
-		openEventsListView = (ListView) findViewById(R.id.listEventOpen);
-		closedEventsListView = (ListView) findViewById(R.id.listEventClosed);
-		closedEventsList = new String[] {"Bronchite", "Cancer du sein"};
+		pName = i.getStringExtra("sam.DocotPatientEventList.patientName");
+		oELView = (ListView) findViewById(R.id.listEventOpen);
+		cELView = (ListView) findViewById(R.id.listEventClosed);
+		cEList = new String[] {"Bronchite", "Cancer du sein", "Angine"};
 					 //  = db.query( <Evènements fermés de patientName> );
-		openEventsList = new String[] {"Amzheimer", "Fracture du bras"};
+		oEList = new String[] {"Alzheimer", "Fracture du bras", "Gastro","Hypertension"};
 				   //  = db.query( <Evènements ouverts de patientName> );
-		openEventsListAdapter = new ArrayAdapter<String>(this, 
-				android.R.layout.simple_list_item_1, openEventsList);
-		closedEventsListAdapter = new ArrayAdapter<String>(this, 
-				android.R.layout.simple_list_item_1, closedEventsList);
+		oELAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, oEList);
+		cELAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, cEList);
+		//==========Paramétrisations==========
+		cELView.setAdapter(cELAdapter);
+		oELView.setAdapter(oELAdapter);
 	}
 }

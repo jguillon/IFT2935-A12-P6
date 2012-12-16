@@ -23,12 +23,12 @@ public class DoctorPatientList extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.doctormainview);
-        //Initialisation des variables
+        //==========Initialisations==========
         patientListView = (ListView) findViewById(R.id.listPatient);
         patientList = new String[] {"Robert Duclou", "Alicia Partu", "Henri Dufour"};
         		//  = db.query( <Nom et prénom de tous les patients> );
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, patientList);
-        //Paramétrisation
+        //==========Paramétrisation===========
         patientListView.setAdapter(adapter);
         patientListView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
