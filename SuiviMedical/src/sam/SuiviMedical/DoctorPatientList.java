@@ -9,7 +9,13 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+/**
+ * Page d'accueil de l'interface du docteur.
+ * @author Jérémy
+ *
+ */
 public class DoctorPatientList extends Activity {
+	
 	private String[] patientList;
 	private ListView patientListView;
 	private ArrayAdapter<String> adapter;
