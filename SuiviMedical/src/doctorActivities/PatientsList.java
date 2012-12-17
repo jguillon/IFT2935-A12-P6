@@ -16,7 +16,7 @@ import android.widget.ListView;
  * @author Jérémy
  *
  */
-public class PatientsList extends Activity {
+public class PatientsList extends Activity implements OnItemClickListener {
 	
 	private String[] patientList;
 	private ListView patientListView;
@@ -33,14 +33,14 @@ public class PatientsList extends Activity {
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, patientList);
         //==========Paramétrisation===========
         patientListView.setAdapter(adapter);
-        patientListView.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-				Intent doc = new Intent(view.getContext(), PatientEventsList.class);
-				Infos session = new Infos("Patrice Medoc","doc");
-				session.setActivePatient(patientList[pos]);
-				doc.putExtra("session", session);
-				startActivity(doc);
-			}        	
-        });
+        patientListView.setOnItemClickListener(this);
+	}
+
+	public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+		Intent doc = new Intent(view.getContext(), PatientEventsList.class);
+		Infos session = new Infos("Patrice Medoc","doc");
+		session.setActivePatient(patientList[pos]);
+		doc.putExtra("session", session);
+		startActivity(doc);
 	}
 }

@@ -7,6 +7,9 @@ import sam.SuiviMedical.R.layout;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,7 +20,7 @@ import android.widget.TextView;
  * @author Jérémy
  *
  */
-public class PatientEventsList extends Activity {
+public class PatientEventsList extends Activity implements OnItemClickListener {
 	
 	private Intent i;
 	private String[] oEList, cEList;						//Open Events List, Closed Events List
@@ -48,8 +51,22 @@ public class PatientEventsList extends Activity {
 		//==========Paramétrisations==========
 		cELView.setAdapter(cELAdapter);
 		oELView.setAdapter(oELAdapter);
+		cELView.setOnItemClickListener(this);
+		oELView.setOnItemClickListener(this);
 		i1TView.setText(session.getActivePatient());
 		i2TView.setText("Adresse");
 		i3TView.setText("N° de tel");
+	}
+
+	public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+		if(parent == oELView) {
+			session.setActiveEvent(oEList[pos]);
+			i = new Intent(view.getContext(), PatientEventModification.class);
+			startActivity(i);
+		} else if(parent == cELView) {
+			session.setActiveEvent(cEList[pos]);
+			i = new Intent(view.getContext(), PatientEventModification.class);
+			startActivity(i);	
+		}
 	}
 }

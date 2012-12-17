@@ -31,6 +31,7 @@
         
         <activity android:name="doctorActivities.PatientsList"></activity>
         <activity android:name="doctorActivities.PatientEventsList"></activity>
+        <activity android:name="doctorActivities.PatientEventModification"></activity>
     </application>
 
 </manifest>
