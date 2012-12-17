@@ -1,5 +1,6 @@
 package doctorActivities;
 
+import sam.SuiviMedical.Infos;
 import sam.SuiviMedical.R;
 import sam.SuiviMedical.R.id;
 import sam.SuiviMedical.R.layout;
@@ -8,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 /**
  * Page listant les évènements (actifs ou non) du patient sélectionné à la
@@ -18,21 +20,26 @@ import android.widget.ListView;
 public class PatientEventsList extends Activity {
 	
 	private Intent i;
-	private String pName;					//Patient Name
-	private String[] oEList, cEList;
-	private ListView oELView, cELView;
-	private ArrayAdapter<String> oELAdapter, cELAdapter;
+	private String pName;									//Patient Name
+	private String[] oEList, cEList;						//Open Events List, Closed Events List
+	private ListView oELView, cELView;						//Open Events ListView, Closed Events ListView
+	private TextView i1TView, i2TView, i3TView;				//Info n TextView
+	private ArrayAdapter<String> oELAdapter, cELAdapter; 	//Open Events List Adapter, Closed Events List Adapter
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.doctoreventlist);
+		
+		oELView = (ListView) findViewById(R.id.listEventOpen);
+		cELView = (ListView) findViewById(R.id.listEventClosed);
+		i1TView = (TextView) findViewById(R.id.info1Patient);
+		i2TView = (TextView) findViewById(R.id.info2Patient);
+		i3TView = (TextView) findViewById(R.id.info3Patient);
 		//==========Initialisations==========
 		//On récupère l'intent qui a lancé cette activité.
 		i = getIntent();
 		//On va chercher dans ses extras, le nom qu'on avait stocké.
 		pName = i.getStringExtra("sam.DocotPatientEventList.patientName");
-		oELView = (ListView) findViewById(R.id.listEventOpen);
-		cELView = (ListView) findViewById(R.id.listEventClosed);
 		cEList = new String[] {"Bronchite", "Cancer du sein", "Angine"};
 					 //  = db.query( <Evènements fermés de patientName> );
 		oEList = new String[] {"Alzheimer", "Fracture du bras", "Gastro","Hypertension"};
@@ -42,5 +49,8 @@ public class PatientEventsList extends Activity {
 		//==========Paramétrisations==========
 		cELView.setAdapter(cELAdapter);
 		oELView.setAdapter(oELAdapter);
+		i1TView.setText(Infos.getActivePatient());
+		i2TView.setText("Adresse");
+		i3TView.setText("N° de tel");
 	}
 }

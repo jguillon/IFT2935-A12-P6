@@ -1,5 +1,6 @@
 package doctorActivities;
 
+import sam.SuiviMedical.Infos;
 import sam.SuiviMedical.R;
 import android.app.Activity;
 import android.content.Intent;
@@ -24,8 +25,9 @@ public class PatientsList extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.doctormainview);
-        //==========Initialisations==========
+        
         patientListView = (ListView) findViewById(R.id.listPatient);
+        //==========Initialisations==========
         patientList = new String[] {"Robert Duclou", "Alicia Partu", "Henri Dufour"};
         		//  = db.query( <Nom et prénom de tous les patients> );
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, patientList);
@@ -34,6 +36,7 @@ public class PatientsList extends Activity {
         patientListView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
 				Intent doc = new Intent(view.getContext(), PatientEventsList.class);
+				Infos.setActivePatient(patientList[pos]);
 				doc.putExtra("sam.DocotPatientEventList.patientName", patientList[pos]);
 				startActivity(doc);
 			}        	

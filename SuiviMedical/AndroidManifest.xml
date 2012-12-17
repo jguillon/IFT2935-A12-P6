@@ -29,8 +29,8 @@
             </intent-filter>
         </activity>
         
-        <activity android:name="sam.SuiviMedical.DoctorPatientList"></activity>
-        <activity android:name="sam.SuiviMedical.DoctorPatientEventList"></activity>
+        <activity android:name="doctorActivities.PatientsList"></activity>
+        <activity android:name="doctorActivities.PatientEventsList"></activity>
     </application>
 
 </manifest>
