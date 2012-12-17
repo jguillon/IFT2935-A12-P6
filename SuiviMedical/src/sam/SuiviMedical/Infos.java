@@ -1,9 +1,17 @@
 package sam.SuiviMedical;
 
-public class Infos {
+import java.io.Serializable;
+
+
+
+public class Infos implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String user;
 	private String userPermission;
-	private static String activePatient;
+	private String activePatient;
 	private String activeEvent;
 	private boolean medReminder;
 	
@@ -21,7 +29,7 @@ public class Infos {
 		return userPermission;
 	}
 	
-	public static String getActivePatient(){
+	public String getActivePatient(){
 		return activePatient;
 	}
 	
@@ -47,11 +55,11 @@ public class Infos {
 			this.userPermission = null;
 	}
 	
-	public static void setActivePatient(String value){
+	public void setActivePatient(String value){
 		if(value != null)
-			activePatient = value;
+			this.activePatient = value;
 		else 
-			activePatient = null;
+			this.activePatient = null;
 	}
 	
 	public void setActiveEvent(String value){
@@ -64,4 +72,5 @@ public class Infos {
 	public void setMedReminder(Boolean value){
 		this.medReminder = value;
 	}
+
 }

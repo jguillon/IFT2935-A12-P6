@@ -36,8 +36,9 @@ public class PatientsList extends Activity {
         patientListView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
 				Intent doc = new Intent(view.getContext(), PatientEventsList.class);
-				Infos.setActivePatient(patientList[pos]);
-				doc.putExtra("sam.DocotPatientEventList.patientName", patientList[pos]);
+				Infos session = new Infos("Patrice Medoc","doc");
+				session.setActivePatient(patientList[pos]);
+				doc.putExtra("session", session);
 				startActivity(doc);
 			}        	
         });

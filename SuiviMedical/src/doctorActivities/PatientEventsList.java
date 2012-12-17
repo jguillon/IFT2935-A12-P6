@@ -20,11 +20,11 @@ import android.widget.TextView;
 public class PatientEventsList extends Activity {
 	
 	private Intent i;
-	private String pName;									//Patient Name
 	private String[] oEList, cEList;						//Open Events List, Closed Events List
 	private ListView oELView, cELView;						//Open Events ListView, Closed Events ListView
 	private TextView i1TView, i2TView, i3TView;				//Info n TextView
 	private ArrayAdapter<String> oELAdapter, cELAdapter; 	//Open Events List Adapter, Closed Events List Adapter
+	private Infos session;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,8 +38,7 @@ public class PatientEventsList extends Activity {
 		//==========Initialisations==========
 		//On récupère l'intent qui a lancé cette activité.
 		i = getIntent();
-		//On va chercher dans ses extras, le nom qu'on avait stocké.
-		pName = i.getStringExtra("sam.DocotPatientEventList.patientName");
+		session = (Infos) i.getSerializableExtra("session");
 		cEList = new String[] {"Bronchite", "Cancer du sein", "Angine"};
 					 //  = db.query( <Evènements fermés de patientName> );
 		oEList = new String[] {"Alzheimer", "Fracture du bras", "Gastro","Hypertension"};
@@ -49,7 +48,7 @@ public class PatientEventsList extends Activity {
 		//==========Paramétrisations==========
 		cELView.setAdapter(cELAdapter);
 		oELView.setAdapter(oELAdapter);
-		i1TView.setText(Infos.getActivePatient());
+		i1TView.setText(session.getActivePatient());
 		i2TView.setText("Adresse");
 		i3TView.setText("N° de tel");
 	}
