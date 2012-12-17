@@ -1,5 +1,6 @@
 package sam.SuiviMedical;
 
+import sam.SuiviMedical.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
