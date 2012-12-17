@@ -1,5 +1,8 @@
-package sam.SuiviMedical;
+package doctorActivities;
 
+import sam.SuiviMedical.R;
+import sam.SuiviMedical.R.id;
+import sam.SuiviMedical.R.layout;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +15,7 @@ import android.widget.ListView;
  * @author Jérémy
  *
  */
-public class DoctorPatientEventList extends Activity {
+public class PatientEventsList extends Activity {
 	
 	private Intent i;
 	private String pName;					//Patient Name

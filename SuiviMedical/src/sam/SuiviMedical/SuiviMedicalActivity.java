@@ -1,5 +1,6 @@
 package sam.SuiviMedical;
 
+import doctorActivities.PatientsList;
 import sam.SuiviMedical.R;
 import android.app.Activity;
 import android.content.Intent;
@@ -19,7 +20,7 @@ public class SuiviMedicalActivity extends Activity {
         
         connect.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
-				Intent doc = new Intent(view.getContext(), DoctorPatientList.class);
+				Intent doc = new Intent(view.getContext(), PatientsList.class);
 				startActivity(doc);
 			}
         });

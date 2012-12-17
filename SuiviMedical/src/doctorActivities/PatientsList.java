@@ -1,5 +1,6 @@
-package sam.SuiviMedical;
+package doctorActivities;
 
+import sam.SuiviMedical.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +15,7 @@ import android.widget.ListView;
  * @author Jérémy
  *
  */
-public class DoctorPatientList extends Activity {
+public class PatientsList extends Activity {
 	
 	private String[] patientList;
 	private ListView patientListView;
@@ -32,7 +33,7 @@ public class DoctorPatientList extends Activity {
         patientListView.setAdapter(adapter);
         patientListView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-				Intent doc = new Intent(view.getContext(), DoctorPatientEventList.class);
+				Intent doc = new Intent(view.getContext(), PatientEventsList.class);
 				doc.putExtra("sam.DocotPatientEventList.patientName", patientList[pos]);
 				startActivity(doc);
 			}        	
