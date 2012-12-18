@@ -65,11 +65,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/bAlertP" android:textSize="30dp"
-            android:drawableLeft="@drawable/emergency_icon_48"
-            android:drawableRight="@drawable/emergency_icon_48"
+            android:drawableLeft="@drawable/emergency_ic"
+            android:drawableRight="@drawable/emergency_ic"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
+            android:paddingRight="10dp"
+            android:text="@string/bAlertP"
+            android:textSize="30dp" />
+
     </LinearLayout>
 
 </LinearLayout>

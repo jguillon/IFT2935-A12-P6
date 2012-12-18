@@ -87,7 +87,7 @@ public class PatientMainActivity extends Activity {
 		       });
 		        simple.create();
 		        simple.setTitle("URGENCE");
-		        simple.setIcon(R.drawable.ambulance_car);
+		        simple.setIcon(R.drawable.ambulance_ic);
 		        simple.show();
 			}
         });
@@ -140,7 +140,7 @@ public class PatientMainActivity extends Activity {
         	 });
         confirm.create();
         confirm.setTitle("Confirmation");
-        confirm.setIcon(R.drawable.ambulance_car);
+        confirm.setIcon(R.drawable.ambulance_ic);
         confirm.show();
     }
 }
