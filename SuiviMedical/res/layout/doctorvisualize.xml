@@ -44,45 +44,63 @@
             android:text="TextView" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/status"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <ListView
-        android:id="@+id/listStatus"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_weight="0.18" >
-
-    </ListView>
-
-    <TextView
-        android:id="@+id/titleDiagnosis"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/diagnosis"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:orientation="horizontal" >
+        
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RadioGroup
+            android:id="@+id/radioChoices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radioAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/all" />
+
+            <RadioButton
+                android:id="@+id/radioDiagnosis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/diagnosis" />
+
+            <RadioButton
+                android:id="@+id/radioReport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/report" />
+
+            <RadioButton
+                android:id="@+id/radioPrescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/prescription" />
+
+            <RadioButton
+                android:id="@+id/radioStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/status" />
+        </RadioGroup>
+
+    </HorizontalScrollView>
 
     <ListView
-        android:id="@+id/listDiagnosis"
+        android:id="@+id/listShowChoices"
         android:layout_width="match_parent"
-        android:layout_height="83dp" >
-    </ListView>
-
-    <TextView
-        android:id="@+id/titleReport"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bReportP"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <ListView
-        android:id="@+id/listReport"
-        android:layout_width="match_parent"
-        android:layout_height="100dp" >
+        android:layout_height="wrap_content" >
     </ListView>
 
 </LinearLayout>

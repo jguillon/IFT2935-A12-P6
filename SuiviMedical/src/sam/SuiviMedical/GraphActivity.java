@@ -5,11 +5,8 @@ import graphClasses.*;
 import graphClasses.GraphView.GraphViewData;
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -18,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 public class GraphActivity extends Activity implements OnItemSelectedListener,
 		OnClickListener {
@@ -98,9 +94,7 @@ public class GraphActivity extends Activity implements OnItemSelectedListener,
 		LinearLayout graph = new LinearLayout(this); 
 		try {
 			layout.removeAllViewsInLayout();
-
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		graph.addView(createGraph(type));

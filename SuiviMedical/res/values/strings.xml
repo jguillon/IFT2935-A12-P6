@@ -7,7 +7,7 @@
     <string name="bDossierP">Dossier Médical</string>
     <string name="bReportP">Envoyer information</string>
     <string name="bDrugsP">Médicaments</string>
-    <string name="bSkypeP">Skype</string>
+    <string name="bSkypeP">Téléphoner à votre médecin</string>
     <string name="bAlertP">Urgence</string>
     <string name="Description">Description</string>
     <string name="hintReport">Écrivez votre rapport ici</string>
@@ -22,10 +22,10 @@
     <string name="addReportDoc">Ajouter un rapport</string>
     <string name="prescribe">Prescrire</string>
     <string name="action">Demander une action</string>
-    <string name="diagnosis">Diagnostique(s)</string>
+    <string name="diagnosis">Diagnostic(s)</string>
     <string name="closeEvent">Fermer l\'événement</string>
     <string name="status">Status</string>
-    <string name="diagnose">Diagnostique</string>
+    <string name="diagnose">Diagnostic</string>
     <string name="hintDiagnosis">Écrivez votre diagnostique complet ici</string>
     <string name="blood">Prise de sang</string>
     <string name="urinalysis">Analyse d\'urine</string>
@@ -36,8 +36,8 @@
     <string name="connect">Connection</string>
     <string name="openDate">Date d\'ouverture :</string>
     <string name="closedDate">Date de fermeture :</string>
-    
-    <string-array name="signesVitaux_array">
+   
+	<string-array name="signesVitaux_array">
         <item>Temperature</item>
         <item>Taux de glucose</item>
         <item>Pression diastolique</item>
@@ -47,9 +47,47 @@
         <item>IMC</item>
         <item>Saturation O2</item>
 
-    </string-array>
+    </string-array>      
     
+	<string-array name="info_array">
+	    <item>Temperature</item>
+        <item>Taux de glucose</item>
+        <item>Pression diastolique</item>
+        <item>Pression systolique</item>
+        <item>Frequence respiratoire</item>
+        <item>Frequence cardiaque</item>
+        <item>IMC</item>
+        <item>Saturation O2</item>
+        <item>Photographie</item>
+	</string-array>
+    
+	<string-array name="unit_array">
+	    <item>°C.</item>
+	   <item>g/L.</item>
+	   <item>mm de mercure.</item>
+	    <item>mm de mercure.</item>
+	   <item>cycles par minutes.</item>
+	   <item>pulsations par minutes.</item>
+	   <item></item>
+	   <item>%.</item>
+	   <item></item>
+	</string-array>
+	
     <string name="title_valeurs">Signes vitaux</string> 
     <string name="text_semaine">derniere semaine</string>
 	<string name="text_annee">derniere annee</string>
+	<string name="info">Informations</string>
+	<string name="ok">Ok</string>
+	<string name="cancel">Annuler</string>
+	<string name="prescription">Prescription</string>
+	<string name="report">Rapport</string>
+	<string name="all">Tout</string>
+	<string name="questionHumeur">Comment allez-vous aujourd\'hui? (Optionnel)</string>
+	<string name="endouleur">En douleur</string>
+	<string name="mal">Mal</string>
+	<string name="mieux">Mieux</string>
+	<string name="bien">Bien</string>
+	<string name="envoyer">Envoyer</string>
+	<string name="confirmer">Confirmer la prise du médicament</string>
+	<string name="commander">Commander à la pharmacie</string>
 </resources>

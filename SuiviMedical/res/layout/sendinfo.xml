@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/info"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spinInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/fillForm"
+        android:layout_width="match_parent"
+        android:layout_height="274dp"
+        android:orientation="vertical">
+    
+		    <TextView android:id="@+id/textMesure"
+		        		android:layout_width="match_parent"
+		        		android:layout_height="wrap_content"
+		        		android:text="Mesure"
+		        		android:paddingTop="10dp" />
+		    
+		    <LinearLayout android:id="@+id/layout_mesure"
+		        		android:layout_width="match_parent"
+		        		android:layout_height="wrap_content"
+		        		android:orientation="horizontal">
+		        		
+				    <EditText android:id="@+id/editValue"
+				        	android:layout_width="fill_parent"
+				        	android:layout_height="wrap_content"
+				        	android:layout_weight="50"
+				        	/>
+				    
+				    <TextView android:id="@+id/textMesureUnit"
+				        	android:layout_width="fill_parent"
+				        	android:layout_height="wrap_content"
+				        	android:text="unites"
+				        	android:layout_weight="50"
+				        	android:layout_marginLeft="10dp"
+				        	/>
+			</LinearLayout>
+			
+		    <TextView android:id="@+id/textHumeur"
+		        	android:layout_width="wrap_content"
+		        	android:layout_height="wrap_content"
+		        	android:text="@string/questionHumeur"/>
+		    
+		    <CheckBox android:id="@+id/humeurBien"
+		        		android:layout_width="wrap_content"
+		        		android:layout_height="wrap_content"
+		        		android:text="@string/bien"/>
+		    <CheckBox android:id="@+id/humeurMieux"
+		        		android:layout_width="wrap_content"
+		        		android:layout_height="wrap_content"
+		        		android:text="@string/mieux"/>
+		     <CheckBox android:id="@+id/humeurMal"
+		        		android:layout_width="wrap_content"
+		        		android:layout_height="wrap_content"
+		        		android:text="@string/mal"/>
+		     <CheckBox android:id="@+id/humeurDouleur"
+		        		android:layout_width="wrap_content"
+		        		android:layout_height="wrap_content"
+		        		android:text="@string/endouleur"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp" >
+
+        <Button
+            android:id="@+id/bOk"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/envoyer" />
+
+        <Button
+            android:id="@+id/bCancel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/cancel" />
+    </LinearLayout>
+
+</LinearLayout>
+
+

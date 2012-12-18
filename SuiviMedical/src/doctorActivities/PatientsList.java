@@ -18,29 +18,29 @@ import android.widget.ListView;
  */
 public class PatientsList extends Activity implements OnItemClickListener {
 	
-	private String[] patientList;
-	private ListView patientListView;
-	private ArrayAdapter<String> adapter;
+	private String[] patientsL;
+	private ListView patientsLV;
+	private ArrayAdapter<String> patientsLA;
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.doctormainview);
         
-        patientListView = (ListView) findViewById(R.id.listPatient);
-        //==========Initialisations==========
-        patientList = new String[] {"Robert Duclou", "Alicia Partu", "Henri Dufour"};
-        		//  = db.query( <Nom et prénom de tous les patients> );
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, patientList);
-        //==========Paramétrisation===========
-        patientListView.setAdapter(adapter);
-        patientListView.setOnItemClickListener(this);
+        patientsLV 	= (ListView) findViewById(R.id.listPatient);
+        
+        patientsL 	= new String[] {"Robert Duclou", "Alicia Partu", "Henri Dufour"};
+        patientsLA 	= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, patientsL);
+     
+        patientsLV.setAdapter(patientsLA);
+        patientsLV.setOnItemClickListener(this);
 	}
 
 	public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-		Intent doc = new Intent(view.getContext(), PatientEventsList.class);
+		Intent i = new Intent(view.getContext(), PatientEventsList.class);
 		Infos session = new Infos("Patrice Medoc","doc");
-		session.setActivePatient(patientList[pos]);
-		doc.putExtra("session", session);
-		startActivity(doc);
+		session.setActivePatient(patientsL[pos]);
+		i.putExtra("session", session);
+		startActivity(i);
 	}
+	
 }
