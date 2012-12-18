@@ -1,12 +1,13 @@
 package doctorActivities;
 
+import sam.SuiviMedical.GraphActivity;
 import sam.SuiviMedical.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.view.View.OnClickListener;
 
 /**
  * Page présentant les actions qu'il est possible d'effectuer sur l'évènement sélectionné
@@ -53,6 +54,15 @@ public class PatientEventModification extends Activity implements OnClickListene
 		} else if(view == closureB) {
 			
 		}
+		
+		Button visualize = (Button) findViewById(R.id.visualize);
+        
+		visualize.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View view) {
+				Intent graph = new Intent(view.getContext(), GraphActivity.class);
+				startActivity(graph);
+			}
+        });
 	}
 	
 }
