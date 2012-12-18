@@ -19,7 +19,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import database.DataSource;
-import doctorActivities.PatientEventModification;
 
 public class PatientFile extends Activity implements OnItemClickListener {
 
@@ -163,14 +162,14 @@ public class PatientFile extends Activity implements OnItemClickListener {
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-		if(parent == openEventsLV) {
+		if (parent == openEventsLV) {
 			session.setActiveEvent(openEventsL.get(pos));
 			i = new Intent(view.getContext(), PatientEvent.class);
 			startActivity(i);
-		} else if(parent == closedEventsLV) {
+		} else if (parent == closedEventsLV) {
 			session.setActiveEvent(closedEventsL.get(pos));
 			i = new Intent(view.getContext(), PatientEvent.class);
-			startActivity(i);	
+			startActivity(i);
 		}
 	}
 }
