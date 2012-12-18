@@ -1,5 +1,7 @@
 package doctorActivities;
 
+import java.util.ArrayList;
+
 import sam.SuiviMedical.Infos;
 import sam.SuiviMedical.R;
 import android.app.Activity;
@@ -21,7 +23,7 @@ import android.widget.TextView;
 public class PatientEventsList extends Activity implements OnItemClickListener {
 	
 	private Intent i;
-	private String[] openEventsL, closedEventsL;
+	private ArrayList<String> openEventsL, closedEventsL;
 	private ListView openEventsLV, closedEventsLV;
 	private TextView info1TV, info2TV, info3TV;
 	private ArrayAdapter<String> openEventsLA, closedEventsLA; 
@@ -40,8 +42,6 @@ public class PatientEventsList extends Activity implements OnItemClickListener {
 
 		i 				= getIntent();
 		session 		= (Infos) i.getSerializableExtra("session");
-		closedEventsL 	= new String[] {"Bronchite", "Cancer du sein", "Angine"};
-		openEventsL 	= new String[] {"Alzheimer", "Fracture du bras", "Gastro","Hypertension"};
 		openEventsLA 	= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, openEventsL);
 		closedEventsLA 	= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, closedEventsL);
 
@@ -57,11 +57,11 @@ public class PatientEventsList extends Activity implements OnItemClickListener {
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
 		if(parent == openEventsLV) {
-			session.setActiveEvent(openEventsL[pos]);
+			session.setActiveEvent(openEventsL.get(pos));
 			i = new Intent(view.getContext(), PatientEventModification.class);
 			startActivity(i);
 		} else if(parent == closedEventsLV) {
-			session.setActiveEvent(closedEventsL[pos]);
+			session.setActiveEvent(closedEventsL.get(pos));
 			i = new Intent(view.getContext(), PatientEventModification.class);
 			startActivity(i);	
 		}

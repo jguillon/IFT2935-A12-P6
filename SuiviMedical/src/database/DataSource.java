@@ -1,11 +1,6 @@
 package database;
 
-//import java.util.ArrayList;
-//import java.util.List;
-
 import java.util.HashMap;
-
-import org.apache.commons.lang3.text.StrSubstitutor;
 
 import android.content.Context;
 import android.database.Cursor;

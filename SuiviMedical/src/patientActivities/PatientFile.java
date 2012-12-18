@@ -19,12 +19,13 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import database.DataSource;
+import doctorActivities.PatientEventModification;
 
-public class PatientFile extends Activity {
+public class PatientFile extends Activity implements OnItemClickListener {
 
 	TextView info1, info2, info3, info4, op, cl;
-	ListView op_eventListView, cl_eventListView;
-	ArrayList<String> op_eventList, cl_eventList;
+	ListView openEventsLV, closedEventsLV;
+	ArrayList<String> openEventsL, closedEventsL;
 	Adapter adapter;
 	Intent i;
 	Infos session;
@@ -53,92 +54,54 @@ public class PatientFile extends Activity {
 		info3.setText("Adresse : " + address);
 		info4.setText("No Tel : " + notel + "\nEmail : " + email);
 
-		op_eventListView = (ListView) findViewById(R.id.listEventOpen);
-		op_eventListView.setVisibility(View.GONE);
-		cl_eventListView = (ListView) findViewById(R.id.listEventClosed);
-		cl_eventListView.setVisibility(View.GONE);
+		openEventsLV = (ListView) findViewById(R.id.listEventOpen);
+		openEventsLV.setVisibility(View.GONE);
+		closedEventsLV = (ListView) findViewById(R.id.listEventClosed);
+		closedEventsLV.setVisibility(View.GONE);
 		Button addButton = (Button) findViewById(R.id.addEvent);
 		addButton.setVisibility(View.GONE);
 
 		op.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				if (op_eventListView.getVisibility() == View.GONE)
-					op_eventListView.setVisibility(View.VISIBLE);
+				if (openEventsLV.getVisibility() == View.GONE)
+					openEventsLV.setVisibility(View.VISIBLE);
 				else
-					op_eventListView.setVisibility(View.GONE);
+					openEventsLV.setVisibility(View.GONE);
 			}
 		});
 
 		cl.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				if (cl_eventListView.getVisibility() == View.GONE)
-					cl_eventListView.setVisibility(View.VISIBLE);
+				if (closedEventsLV.getVisibility() == View.GONE)
+					closedEventsLV.setVisibility(View.VISIBLE);
 				else
-					cl_eventListView.setVisibility(View.GONE);
+					closedEventsLV.setVisibility(View.GONE);
 			}
 		});
 
-		op_eventList = new ArrayList<String>();
-		op_eventList.add("Fracture bras");
-		op_eventList.add("Chute parachute");
-		op_eventList.add("Mal de tête intense");
-		// = db.query( <Nom et prénom de tous les patients> );
+		openEventsL = new ArrayList<String>();
+		openEventsL.add("Fracture bras");
+		openEventsL.add("Chute parachute");
+		openEventsL.add("Mal de tête intense");
 
 		adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, op_eventList);
-		op_eventListView.setAdapter((ListAdapter) adapter);
+				android.R.layout.simple_list_item_1, openEventsL);
+		openEventsLV.setAdapter((ListAdapter) adapter);
+		openEventsLV.setOnItemClickListener(this);
 
-		op_eventListView.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View view, int arg2,
-					long itemID) {
-
-				Intent doc = new Intent(view.getContext(), PatientEvent.class);
-				doc.putExtra("session", session);
-				startActivity(doc);
-			}
-		});
-
-		cl_eventList = new ArrayList<String>();
-		cl_eventList.add("Enflure");
-		cl_eventList.add("Rougeurs");
-		cl_eventList.add("Plaques rouges");
-		// = db.query( <Nom et prénom de tous les patients> );
+		closedEventsL = new ArrayList<String>();
+		closedEventsL.add("Enflure");
+		closedEventsL.add("Rougeurs");
+		closedEventsL.add("Plaques rouges");
 
 		adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, cl_eventList);
-		cl_eventListView.setAdapter((ListAdapter) adapter);
-
-		cl_eventListView.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View view, int arg2,
-					long itemID) {
-
-				Intent doc = new Intent(view.getContext(), PatientEvent.class);
-				startActivity(doc);
-			}
-		});
-
-		/** Probablement nécessaire */
+				android.R.layout.simple_list_item_1, closedEventsL);
+		closedEventsLV.setAdapter((ListAdapter) adapter);
+		closedEventsLV.setOnItemClickListener(this);
 
 	}
-
-	/** Need a lot of sql request!! */
-
-	/** Est-ce que c'est ici qu'on peut cliquer pour faire des graphiques? */
-	/**
-	 * choices.setAdapter((ListAdapter) adapter);
-	 * choices.setOnItemClickListener(new OnItemClickListener(){
-	 * 
-	 * @Override public void onItemClick(AdapterView parent, View v, int pos,
-	 *           long id){
-	 * 
-	 *           }
-	 * 
-	 *           });
-	 */
 
 	public void setInfosPatient(String user) {
 
@@ -196,5 +159,18 @@ public class PatientFile extends Activity {
 		if (c != null && c.getCount() > 0 && c.moveToFirst())
 			return c.getString(c.getColumnIndex(s));
 		return "";
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+		if(parent == openEventsLV) {
+			session.setActiveEvent(openEventsL.get(pos));
+			i = new Intent(view.getContext(), PatientEvent.class);
+			startActivity(i);
+		} else if(parent == closedEventsLV) {
+			session.setActiveEvent(closedEventsL.get(pos));
+			i = new Intent(view.getContext(), PatientEvent.class);
+			startActivity(i);	
+		}
 	}
 }
