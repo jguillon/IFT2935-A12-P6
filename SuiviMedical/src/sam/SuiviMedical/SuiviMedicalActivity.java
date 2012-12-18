@@ -3,11 +3,14 @@ package sam.SuiviMedical;
 import patientActivities.PatientMainActivity;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import database.DataSource;
 import doctorActivities.PatientsList;
 
 public class SuiviMedicalActivity extends Activity {
@@ -15,6 +18,7 @@ public class SuiviMedicalActivity extends Activity {
 	Infos session;
 	/** Called when the activity is first created. */
 	private EditText loginEdit;
+	private DataSource ds;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,7 @@ public class SuiviMedicalActivity extends Activity {
 		// EditText loginEdit = (EditText) findViewById(R.id.userName);
 		setContentView(R.layout.main);
 
+		ds = new DataSource(this);
 		Button connect = (Button) findViewById(R.id.connect);
 		final EditText loginEdit = (EditText) findViewById(R.id.userName);
 
@@ -29,12 +34,18 @@ public class SuiviMedicalActivity extends Activity {
 			@Override
 			public void onClick(View view) {
 				String login = Login();
-				if (login.equals("Patient")) {
+				Log.w("login ",login);
+				ds.open();
+				Cursor roleC = ds.selectWhere(DataSource.TBL_ROLE, "Role", "NoAss = "+login);
+				roleC.moveToFirst();
+				String role = roleC.getString(roleC.getColumnIndex("Role"));
+				ds.close();
+				if (roleC != null && role.equals("Patient")) {
 					Intent doc = new Intent(view.getContext(),
 							PatientMainActivity.class);
 					doc.putExtra("session", session);
 					startActivity(doc);
-				} else if (login.equals("Doctor")) {
+				} else if (roleC != null && role.equals("Doctor")) {
 					Intent doc = new Intent(view.getContext(),
 							PatientsList.class);
 					doc.putExtra("session", session);

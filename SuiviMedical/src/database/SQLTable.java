@@ -43,6 +43,6 @@ public class SQLTable {
 	//                                -----------
 	//                                   where
 	public Cursor selectWhere(String fields, String where) {
-		return rawSelect("SELECT " + fields + " FROM " + t_name + "WHERE " + where);
+		return rawSelect("SELECT " + fields + " FROM " + t_name + " WHERE " + where);
 	}
 }
