@@ -44,7 +44,7 @@ public class SuiviMedicalActivity extends Activity implements OnClickListener {
 		Cursor roleC = ds.selectWhere(DataSource.TBL_ROLE, "PersonRole", "NoAss = \""+login+"\"");
 		
 		//On vérifie que le curseur n'est pas nul et qu'il ne pointe pas sur une table vide
-		if(roleC != null && roleC.getCount() != 0 && pswd == login) {
+		if(roleC != null && roleC.getCount() != 0 && pswd.equals(login)) {
 			//On remet le curseur au début
 			roleC.moveToFirst();
 			//On récupère l'index de la colonne qui nous intéresse et la chaîne qu'elle contient

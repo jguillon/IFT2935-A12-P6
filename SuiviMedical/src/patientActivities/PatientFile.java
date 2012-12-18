@@ -6,6 +6,7 @@ import sam.SuiviMedical.Infos;
 import sam.SuiviMedical.R;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,6 +18,7 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import database.DataSource;
 
 public class PatientFile extends Activity {
 
@@ -46,9 +48,10 @@ public class PatientFile extends Activity {
 		cl = (TextView) findViewById(R.id.textEventClosed);
 
 		info1.setText(firstname + " " + middlename + " " + lastname);
-		info2.setText("Sexe : " + sex + "\n" + birthdate + "\n" + noAssurance);
+		info2.setText("Sexe : " + sex + "\nDate de Naissance : " + birthdate
+				+ "\nNo Assurance : " + session.getUser());
 		info3.setText("Adresse : " + address);
-		info4.setText("No Tel : " + notel + "\n Email : " + email);
+		info4.setText("No Tel : " + notel + "\nEmail : " + email);
 
 		op_eventListView = (ListView) findViewById(R.id.listEventOpen);
 		op_eventListView.setVisibility(View.GONE);
@@ -139,43 +142,59 @@ public class PatientFile extends Activity {
 
 	public void setInfosPatient(String user) {
 
-		// Cursor c = db.rawQuery("SELECT firstname, lastname, middlename,
-		// birthdate, sex, nostreet, street, apt, city, province, pc, country,
-		// notel, email
-		// FROM PERSON WHERE PERSON.noAssurance = \"" + user "\";")
-		// c.moveToFirst()
-		noAssurance = user;
-		firstname = "Jean"; // c.getString(0)
-		lastname = "Tremblay"; // c.getString(1)
-		// if(c.getString(2)!=null)
-		middlename = "Joseph"; // c.getString(2)
-		// else
-		// middlename = "";
-		birthdate = "10/06/1988"; // c.getDate(3).toString()
-		sex = "M"; // c.getString(4)
-		address = "45" + "rue" + "DesPins" + ",\n" + "Montréal" + ", "
-				+ "Quebec" + ", " + "Canada" + ",\n" + "H7g 5F5"; // etc.
-		notel = "514-555-9867";
-		email = "jeanTremblay@mymail.com";
+		DataSource ds = new DataSource(this);
+		ds.open();
+		Cursor c = ds.selectWhere(DataSource.TBL_PERSON, "fName", "NoAss = \""
+				+ user + "\"");
+		firstname = checkAndGet("fName", c);
+		c = ds.selectWhere(DataSource.TBL_PERSON, "mName", "NoAss = \"" + user
+				+ "\"");
+		middlename = checkAndGet("mName", c);
+		c = ds.selectWhere(DataSource.TBL_PERSON, "lName", "NoAss = \"" + user
+				+ "\"");
+		lastname = checkAndGet("lName", c);
+		c = ds.selectWhere(DataSource.TBL_PERSON, "bDate", "NoAss = \"" + user
+				+ "\"");
+		birthdate = checkAndGet("bDate", c);
+		c = ds.selectWhere(DataSource.TBL_PERSON, "sex", "NoAss = \"" + user
+				+ "\"");
+		sex = checkAndGet("sex", c);
+		c = ds.selectWhere(DataSource.TBL_PERSON, "streetNo", "NoAss = \""
+				+ user + "\"");
+		String streetNo = checkAndGet("streetNo", c);
+		c = ds.selectWhere(DataSource.TBL_PERSON, "street", "NoAss = \"" + user
+				+ "\"");
+		String street = checkAndGet("street", c);
+		c = ds.selectWhere(DataSource.TBL_PERSON, "appt", "NoAss = \"" + user
+				+ "\"");
+		String appt = checkAndGet("appt", c);
+		c = ds.selectWhere(DataSource.TBL_PERSON, "city", "NoAss = \"" + user
+				+ "\"");
+		String city = checkAndGet("city", c);
+		c = ds.selectWhere(DataSource.TBL_PERSON, "province", "NoAss = \""
+				+ user + "\"");
+		String province = checkAndGet("province", c);
+		c = ds.selectWhere(DataSource.TBL_PERSON, "pc", "NoAss = \"" + user
+				+ "\"");
+		String pc = checkAndGet("pc", c);
+		c = ds.selectWhere(DataSource.TBL_PERSON, "country", "NoAss = \""
+				+ user + "\"");
+		String country = checkAndGet("country", c);
+		c = ds.selectWhere(DataSource.TBL_PERSON, "telno", "NoAss = \"" + user
+				+ "\"");
+		notel = checkAndGet("telno", c);
+		c = ds.selectWhere(DataSource.TBL_PERSON, "email", "NoAss = \"" + user
+				+ "\"");
+		email = checkAndGet("email", c);
+		ds.close();
+		address = ((appt.equals("")) ? "" : ("Appt. " + appt + " ")) + streetNo
+				+ " " + street + ",\n\t" + city + ", " + province + ", "
+				+ country + ",\n\t" + pc;
+	}
+
+	private String checkAndGet(String s, Cursor c) {
+		if (c != null && c.getCount() > 0 && c.moveToFirst())
+			return c.getString(c.getColumnIndex(s));
+		return "";
 	}
 }
-
-/*
- * public void onCreate(Bundle savedInstanceState) {
- * super.onCreate(savedInstanceState); setContentView(R.layout.doctoreventlist);
- * 
- * eventListView = (ListView) findViewById(R.id.listEventOpen); eventList = new
- * String[] {"event 1", "event2", "Event 3"}; // = db.query( <Nom et prénom de
- * tous les patients> );
- * 
- * adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
- * eventList); eventListView.setAdapter(adapter);
- * 
- * eventListView.setOnItemClickListener(new OnItemClickListener() {
- * 
- * @Override public void onItemClick(AdapterView<?> arg0, View view, int
- * arg2,long itemID) {
- * 
- * int position = (int) arg0.getSelectedItemId(); Intent doc = new
- * Intent(view.getContext(), PatientEvent.class); startActivity(doc); } }); } }
- */
