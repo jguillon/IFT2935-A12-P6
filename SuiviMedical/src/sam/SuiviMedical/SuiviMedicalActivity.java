@@ -15,8 +15,6 @@ import doctorActivities.PatientsList;
 
 public class SuiviMedicalActivity extends Activity implements OnClickListener {
 
-	Infos session;
-	/** Called when the activity is first created. */
 	private EditText loginET, passwordET;
 	private Button connectB;
 	private DataSource ds;
@@ -36,27 +34,24 @@ public class SuiviMedicalActivity extends Activity implements OnClickListener {
 	}
 
 	@Override
-	public void onResume() {
-		super.onResume();
-		if (session != null && loginET != null) {
-			session.clearSession();
-			loginET.setText("");
-		}
-	}
-
-	@Override
 	public void onClick(View v) {
+		//On commence par ouvrir la base de données
 		ds.open();
 		
 		String login = loginET.getText().toString();
 		String pswd = passwordET.getText().toString();
+		//On déclare un curseur sur la table retournée par la requête SQL
 		Cursor roleC = ds.selectWhere(DataSource.TBL_ROLE, "PersonRole", "NoAss = \""+login+"\"");
 		
+		//On vérifie que le curseur n'est pas nul et qu'il ne pointe pas sur une table vide
 		if(roleC != null && roleC.getCount() != 0 && pswd == login) {
+			//On remet le curseur au début
 			roleC.moveToFirst();
+			//On récupère l'index de la colonne qui nous intéresse et la chaîne qu'elle contient
 			String role = roleC.getString( roleC.getColumnIndex("PersonRole") );
+			//Et enfin, on n'oublie pas de refermer la base de données.
 			ds.close();
-			session = new Infos(login, role);
+			Infos session = new Infos(login, role);
 			if (role.equals("Patient")) {
 				Intent i = new Intent(v.getContext(), PatientMainActivity.class);
 				i.putExtra("session", session);
