@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation = "vertical" >
+    
+    <Button android:id="@+id/prescrireMed"
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:text="@string/prescrireMed"
+    		android:layout_gravity="center"
+    		android:layout_marginTop="10dp"/>
+    
+    <TextView android:id="@+id/listMeds"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:text="@string/listMeds"
+        	android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <ListView
+        android:id="@+id/listDrugsDoc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+    </ListView>
+
+</LinearLayout>

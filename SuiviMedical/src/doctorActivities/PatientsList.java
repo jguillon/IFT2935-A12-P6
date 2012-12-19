@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 /**
@@ -21,12 +22,15 @@ public class PatientsList extends Activity implements OnItemClickListener {
 	private String[] patientsL;
 	private ListView patientsLV;
 	private ArrayAdapter<String> patientsLA;
+	private Button addPatient;
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.doctormainview);
         
         patientsLV 	= (ListView) findViewById(R.id.listPatient);
+        addPatient		= (Button)	 findViewById(R.id.addPatient);
+		addPatient.setVisibility(Button.GONE); //notre application ne permet pas d'ajouter de nouveaux patients.
         
         patientsL 	= new String[] {"Robert Duclou", "Alicia Partu", "Henri Dufour"};
         patientsLA 	= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, patientsL);

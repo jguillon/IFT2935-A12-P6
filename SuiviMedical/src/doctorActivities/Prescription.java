@@ -1,36 +1,40 @@
 package doctorActivities;
 
+import patientActivities.PatientSendInfos;
+import sam.SuiviMedical.Infos;
 import sam.SuiviMedical.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-public class ReportCreation extends Activity {
+public class Prescription extends Activity {
 
-	TextView title; 
-	Button send;
+	Button prescrire;
 	Button cancel;
+	
+	Intent i;
+	Infos session;
+	
 	AlertDialog.Builder simple;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.report);
-
-		title = (TextView) findViewById(R.id.titleDesc);
-		title.setText("Nouveau rapport");
-		send = (Button) findViewById(R.id.bsendReport);
-		cancel = (Button) findViewById(R.id.bCancelReport);
+		setContentView(R.layout.doctorprescription); 
+		i = getIntent();
+		session = (Infos) i.getSerializableExtra("session");
+		
+		prescrire = (Button) findViewById(R.id.bsendPresc);
+		cancel = (Button) findViewById(R.id.bCancelPresc);
 		simple = new AlertDialog.Builder(this);
 		
-		
-        send.setOnClickListener(new View.OnClickListener() {
+		prescrire.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				simple.setMessage("Le rapport a été ajouté au dossier.");
+				simple.setMessage("La prescription a été ajoutée au dossier.");
 		        simple.setCancelable(false);
 		        simple.setPositiveButton("ok", new DialogInterface.OnClickListener() {
 		        	 @Override
@@ -41,17 +45,17 @@ public class ReportCreation extends Activity {
 		        
 		        simple.create();
 		        simple.setTitle("Confirmation");
-		        simple.setIcon(R.drawable.report_ic);
+		        simple.setIcon(R.drawable.patient_meds);
 		        simple.show();
-				}
+			}
         });
-        cancel.setOnClickListener(new View.OnClickListener() {
+		
+		cancel.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				finish();
 			}
         });
-		
 	}
-
+	
 }

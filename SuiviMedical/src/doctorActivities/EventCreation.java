@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ReportCreation extends Activity {
+public class EventCreation extends Activity {
 
 	TextView title; 
 	Button send;
@@ -21,7 +21,8 @@ public class ReportCreation extends Activity {
 		setContentView(R.layout.report);
 
 		title = (TextView) findViewById(R.id.titleDesc);
-		title.setText("Nouveau rapport");
+		title.setText("Nouvel évenement");
+		
 		send = (Button) findViewById(R.id.bsendReport);
 		cancel = (Button) findViewById(R.id.bCancelReport);
 		simple = new AlertDialog.Builder(this);
@@ -30,7 +31,7 @@ public class ReportCreation extends Activity {
         send.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				simple.setMessage("Le rapport a été ajouté au dossier.");
+				simple.setMessage("L'évènement a été ajouté au dossier.");
 		        simple.setCancelable(false);
 		        simple.setPositiveButton("ok", new DialogInterface.OnClickListener() {
 		        	 @Override
@@ -41,7 +42,7 @@ public class ReportCreation extends Activity {
 		        
 		        simple.create();
 		        simple.setTitle("Confirmation");
-		        simple.setIcon(R.drawable.report_ic);
+		        simple.setIcon(R.drawable.patient_file);
 		        simple.show();
 				}
         });
@@ -51,7 +52,6 @@ public class ReportCreation extends Activity {
 				finish();
 			}
         });
-		
 	}
 
 }

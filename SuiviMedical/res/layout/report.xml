@@ -3,21 +3,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+    
+    <TextView  android:id="@+id/titleDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge" android:textSize="30dp" android:layout_marginBottom="10dp"/>
 
     <TextView
         android:id="@+id/viewDescRapport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Description"
-        android:textAppearance="?android:attr/textAppearanceMedium" android:textSize="30dp" android:layout_marginBottom="10dp"/>
-
-    <EditText
-        android:id="@+id/editRapport"
+        android:textAppearance="?android:attr/textAppearanceSmall" android:textSize="30dp" android:layout_marginBottom="10dp"/>
+	
+        
+	    <EditText
+	        android:id="@+id/editRapport"
+	        android:layout_width="match_parent"
+	        android:layout_height="200dp"
+	        android:inputType="textMultiLine" android:hint="@string/hintReport">
+	
+	        <requestFocus />
+	    </EditText>
+    
+<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine" android:hint="@string/hintReport">
+        android:layout_marginTop="30dp" >
 
-        <requestFocus />
-    </EditText>
+        <Button
+            android:id="@+id/bsendReport"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/envoyer" />
+
+        <Button
+            android:id="@+id/bCancelReport"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/cancel" />
+    </LinearLayout>
 
 </LinearLayout>

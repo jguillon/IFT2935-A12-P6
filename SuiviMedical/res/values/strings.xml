@@ -90,4 +90,50 @@
 	<string name="envoyer">Envoyer</string>
 	<string name="confirmer">Confirmer la prise du médicament</string>
 	<string name="commander">Commander à la pharmacie</string>
+	<string name="prescrireMed">Prescrire un médicament</string>
+	<string name="listMeds">Liste des médicaments prescrits :</string>
+	<string name="drugname_text">Médicament :</string>
+	<string name="quantite_text">Quantité :       </string>
+	<string name="frequence_text">Fréquence :     </string>
+	<string name="nombrejours_text">Nombre de jours :</string>
+	<string name="titlediagnostic">Nouveau Diagnostic :</string>
+	
+	<string-array name="diagnosis_array">
+				<item>Depression</item>
+				<item>Angoisses chroniques</item>
+				<item>Fracture</item>
+				<item>Alzeimer</item>
+				<item>Arthrite</item>
+				<item>Arthrose</item>
+				<item>Troubles bipolaires</item>
+				<item>Rhume</item>
+				<item>Grippe</item>
+				<item>Bronchite</item>
+				<item>Pneumonie</item>
+				<item>Appendicite</item>
+				<item>Pharyngite</item>
+				<item>Laryngite</item>
+				<item>Bronchite</item>
+				<item>Eczema</item>
+				<item>Psoriasis</item>
+				<item>Diabete de type I</item>
+				<item>Diabete de type II</item>
+				<item>Dechirure des ligaments</item>
+				<item>Luxation</item>
+				<item>Schizophrenie</item>
+				<item>Epilespsie</item>
+				<item>Encephalite</item>
+				<item>Ulcere</item>
+				<item>Cancer</item>
+				<item>Sida</item>
+				<item>Traumatisme cranien</item>
+				<item>Aphasie</item>
+				<item>Foulure</item>
+				<item>Entorse</item>
+				<item>Phlebite</item>
+				<item>Angine</item>
+				<item>Maladie de Crohn</item>
+				<item>Intoxication alimentaire</item>
+				<item>Gastro-enterite</item>
+			</string-array>
 </resources>

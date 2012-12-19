@@ -4,6 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+     <TextView
+            android:id="@+id/titleDiagnosis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titlediagnostic"
+            android:textAppearance="?android:attr/textAppearanceLarge" android:textSize="30dp" android:layout_marginTop="5dp"/>
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
@@ -39,5 +45,25 @@
 
         <requestFocus />
     </EditText>
+    
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp" >
+
+        <Button
+            android:id="@+id/bOkDiagn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/envoyer" />
+
+        <Button
+            android:id="@+id/bCancelDiagn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/cancel" />
+    </LinearLayout>
 
 </LinearLayout>
