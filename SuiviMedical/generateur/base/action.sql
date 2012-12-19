@@ -1,300 +1,300 @@
 INSERT INTO Action
-VALUES (1, 33, 9, '2012-02-01', 'Consultation optometrie');
+VALUES (1, 87, 8, '2007-04-20', 'Test de glucose');
 
 INSERT INTO Action
-VALUES (2, 41, 6, '2005-07-08', 'Chirurgie');
+VALUES (2, 80, 4, '2012-06-23', 'Chirurgie');
 
 INSERT INTO Action
-VALUES (3, 76, 2, '2008-02-20', 'Prise de sang');
+VALUES (3, 2, 10, '2010-12-28', 'Scanner');
 
 INSERT INTO Action
-VALUES (4, 19, 9, '2011-05-05', 'Chirurgie');
+VALUES (4, 35, 7, '2008-05-02', 'Biopsie');
 
 INSERT INTO Action
-VALUES (5, 80, 6, '2008-04-13', 'Test de glucose');
+VALUES (5, 34, 2, '2012-10-01', 'Test de glucose');
 
 INSERT INTO Action
-VALUES (6, 49, 2, '2005-05-10', 'Analyse d''urine');
+VALUES (6, 92, 3, '2009-11-26', 'Prise de sang');
 
 INSERT INTO Action
-VALUES (7, 62, 7, '2009-12-09', 'Scanner');
+VALUES (7, 52, 5, '2011-07-05', 'Test de glucose');
 
 INSERT INTO Action
-VALUES (8, 23, 6, '2006-06-14', 'Consultation physiotherapie');
+VALUES (8, 4, 8, '2006-08-14', 'Medecine nucleaire');
 
 INSERT INTO Action
-VALUES (9, 62, 10, '2008-11-06', 'Consultation orthophonique');
+VALUES (9, 70, 1, '2010-07-16', 'Chirurgie');
 
 INSERT INTO Action
-VALUES (10, 5, 2, '2012-11-15', 'Consultation physiotherapie');
+VALUES (10, 29, 7, '2007-11-26', 'Analyse d''urine');
 
 INSERT INTO Action
-VALUES (11, 42, 3, '2008-04-22', 'Rayons X');
+VALUES (11, 23, 2, '2011-02-22', 'Consultation optometrie');
 
 INSERT INTO Action
-VALUES (12, 10, 7, '2007-01-04', 'Test de glucose');
+VALUES (12, 91, 1, '2010-05-21', 'Consultation orthophonique');
 
 INSERT INTO Action
-VALUES (13, 82, 3, '2007-05-04', 'Biopsie');
+VALUES (13, 46, 7, '2007-06-12', 'Consultation orthophonique');
 
 INSERT INTO Action
-VALUES (14, 35, 6, '2007-01-20', 'Medecine nucleaire');
+VALUES (14, 56, 8, '2005-06-06', 'Consultation optometrie');
 
 INSERT INTO Action
-VALUES (15, 46, 2, '2009-04-15', 'Test de glucose');
+VALUES (15, 39, 8, '2012-11-21', 'Consultation psychologique');
 
 INSERT INTO Action
-VALUES (16, 82, 1, '2007-05-04', 'Rayons X');
+VALUES (16, 100, 9, '2007-05-19', 'Medecine nucleaire');
 
 INSERT INTO Action
-VALUES (17, 75, 5, '2009-10-03', 'Consultation audiologique');
+VALUES (17, 3, 8, '2010-09-26', 'Scanner');
 
 INSERT INTO Action
-VALUES (18, 3, 3, '2009-11-23', 'Consultation physiotherapie');
+VALUES (18, 87, 2, '2007-04-20', 'Medecine nucleaire');
 
 INSERT INTO Action
-VALUES (19, 43, 9, '2006-03-24', 'Prise de sang');
+VALUES (19, 89, 5, '2011-05-17', 'Consultation psychologique');
 
 INSERT INTO Action
-VALUES (20, 79, 3, '2010-02-01', 'Rayons X');
+VALUES (20, 20, 6, '2010-08-04', 'Rayons X');
 
 INSERT INTO Action
-VALUES (21, 91, 8, '2009-09-12', 'Consultation psychologique');
+VALUES (21, 70, 10, '2005-11-11', 'Medecine nucleaire');
 
 INSERT INTO Action
-VALUES (22, 77, 7, '2008-02-08', 'Test de glucose');
+VALUES (22, 94, 6, '2012-02-26', 'Consultation psychologique');
 
 INSERT INTO Action
-VALUES (23, 32, 3, '2012-11-18', 'Test de glucose');
+VALUES (23, 75, 3, '2008-02-23', 'Rayons X');
 
 INSERT INTO Action
-VALUES (24, 89, 9, '2009-08-22', 'Analyse d''urine');
+VALUES (24, 69, 7, '2012-04-07', 'Consultation physiotherapie');
 
 INSERT INTO Action
-VALUES (25, 91, 3, '2008-05-23', 'Consultation audiologique');
+VALUES (25, 50, 2, '2009-12-01', 'Consultation orthophonique');
 
 INSERT INTO Action
-VALUES (26, 80, 9, '2008-04-13', 'Consultation orthophonique');
+VALUES (26, 79, 10, '2010-12-05', 'Medecine nucleaire');
 
 INSERT INTO Action
-VALUES (27, 24, 4, '2009-01-04', 'Test de glucose');
+VALUES (27, 69, 3, '2012-04-07', 'Medecine nucleaire');
 
 INSERT INTO Action
-VALUES (28, 47, 5, '2010-07-16', 'Test de glucose');
+VALUES (28, 99, 3, '2006-05-05', 'Biopsie');
 
 INSERT INTO Action
-VALUES (29, 41, 7, '2005-05-26', 'Analyse d''urine');
+VALUES (29, 90, 8, '2008-01-23', 'Medecine nucleaire');
 
 INSERT INTO Action
-VALUES (30, 21, 2, '2010-06-28', 'Consultation psychologique');
+VALUES (30, 66, 6, '2010-04-01', 'Rayons X');
 
 INSERT INTO Action
-VALUES (31, 11, 1, '2010-12-16', 'Consultation physiotherapie');
+VALUES (31, 52, 6, '2011-07-05', 'Scanner');
 
 INSERT INTO Action
-VALUES (32, 12, 7, '2012-05-12', 'Biopsie');
+VALUES (32, 69, 8, '2012-04-07', 'Scanner');
 
 INSERT INTO Action
-VALUES (33, 84, 10, '2012-02-12', 'Medecine nucleaire');
+VALUES (33, 76, 4, '2011-08-07', 'Biopsie');
 
 INSERT INTO Action
-VALUES (34, 21, 7, '2010-06-28', 'Analyse d''urine');
+VALUES (34, 4, 6, '2006-08-14', 'Consultation psychologique');
 
 INSERT INTO Action
-VALUES (35, 9, 10, '2009-07-23', 'Consultation orthophonique');
+VALUES (35, 90, 5, '2008-01-23', 'Consultation psychologique');
 
 INSERT INTO Action
-VALUES (36, 99, 2, '2006-01-21', 'Chirurgie');
+VALUES (36, 4, 10, '2007-09-22', 'Scanner');
 
 INSERT INTO Action
-VALUES (37, 74, 7, '2009-01-11', 'Biopsie');
+VALUES (37, 16, 6, '2011-02-18', 'Consultation psychologique');
 
 INSERT INTO Action
-VALUES (38, 38, 9, '2005-11-07', 'Consultation psychologique');
+VALUES (38, 95, 1, '2010-07-17', 'Consultation optometrie');
 
 INSERT INTO Action
-VALUES (39, 50, 3, '2006-03-17', 'Test de glucose');
+VALUES (39, 81, 6, '2011-04-09', 'Prise de sang');
 
 INSERT INTO Action
-VALUES (40, 85, 7, '2006-08-08', 'Test de glucose');
+VALUES (40, 61, 5, '2009-07-12', 'Consultation orthophonique');
 
 INSERT INTO Action
-VALUES (41, 99, 4, '2006-01-21', 'Chirurgie');
+VALUES (41, 46, 9, '2007-07-15', 'Consultation audiologique');
 
 INSERT INTO Action
-VALUES (42, 93, 8, '2007-07-10', 'Scanner');
+VALUES (42, 30, 1, '2011-05-26', 'Rayons X');
 
 INSERT INTO Action
-VALUES (43, 43, 7, '2008-11-17', 'Scanner');
+VALUES (43, 56, 1, '2008-11-27', 'Medecine nucleaire');
 
 INSERT INTO Action
-VALUES (44, 86, 9, '2012-03-05', 'Biopsie');
+VALUES (44, 75, 9, '2007-09-17', 'Analyse d''urine');
 
 INSERT INTO Action
-VALUES (45, 86, 7, '2012-03-05', 'Consultation psychologique');
+VALUES (45, 72, 7, '2012-12-18', 'Rayons X');
 
 INSERT INTO Action
-VALUES (46, 97, 3, '2010-10-09', 'Prise de sang');
+VALUES (46, 28, 6, '2011-07-25', 'Test de glucose');
 
 INSERT INTO Action
-VALUES (47, 74, 2, '2009-01-11', 'Consultation orthophonique');
+VALUES (47, 31, 4, '2009-09-20', 'Analyse d''urine');
 
 INSERT INTO Action
-VALUES (48, 34, 10, '2005-08-19', 'Medecine nucleaire');
+VALUES (48, 38, 5, '2005-12-01', 'Consultation orthophonique');
 
 INSERT INTO Action
-VALUES (49, 18, 2, '2011-03-11', 'Analyse d''urine');
+VALUES (49, 21, 10, '2010-11-10', 'Consultation physiotherapie');
 
 INSERT INTO Action
-VALUES (50, 30, 5, '2012-11-21', 'Consultation physiotherapie');
+VALUES (50, 48, 4, '2011-12-10', 'Consultation optometrie');
 
 INSERT INTO Action
-VALUES (51, 14, 9, '2008-09-27', 'Consultation orthophonique');
+VALUES (51, 4, 8, '2006-08-14', 'Consultation psychologique');
 
 INSERT INTO Action
-VALUES (52, 13, 5, '2012-10-12', 'Test de glucose');
+VALUES (52, 71, 10, '2006-07-04', 'Consultation orthophonique');
 
 INSERT INTO Action
-VALUES (53, 44, 8, '2007-06-18', 'Rayons X');
+VALUES (53, 94, 2, '2012-02-26', 'Analyse d''urine');
 
 INSERT INTO Action
-VALUES (54, 88, 10, '2005-05-13', 'Scanner');
+VALUES (54, 91, 1, '2006-04-02', 'Prise de sang');
 
 INSERT INTO Action
-VALUES (55, 61, 2, '2009-08-15', 'Consultation orthophonique');
+VALUES (55, 64, 5, '2008-07-11', 'Scanner');
 
 INSERT INTO Action
-VALUES (56, 43, 1, '2010-06-11', 'Medecine nucleaire');
+VALUES (56, 100, 7, '2007-05-19', 'Analyse d''urine');
 
 INSERT INTO Action
-VALUES (57, 88, 4, '2005-05-13', 'Biopsie');
+VALUES (57, 45, 10, '2012-11-23', 'Consultation optometrie');
 
 INSERT INTO Action
-VALUES (58, 7, 8, '2008-10-27', 'Biopsie');
+VALUES (58, 93, 10, '2008-10-19', 'Consultation physiotherapie');
 
 INSERT INTO Action
-VALUES (59, 65, 3, '2012-01-01', 'Prise de sang');
+VALUES (59, 77, 3, '2010-05-21', 'Analyse d''urine');
 
 INSERT INTO Action
-VALUES (60, 57, 9, '2011-04-10', 'Consultation audiologique');
+VALUES (60, 100, 4, '2007-05-19', 'Consultation optometrie');
 
 INSERT INTO Action
-VALUES (61, 4, 6, '2011-07-16', 'Rayons X');
+VALUES (61, 40, 2, '2011-07-18', 'Consultation audiologique');
 
 INSERT INTO Action
-VALUES (62, 24, 2, '2007-07-20', 'Consultation orthophonique');
+VALUES (62, 2, 7, '2010-03-11', 'Test de glucose');
 
 INSERT INTO Action
-VALUES (63, 91, 6, '2006-04-24', 'Consultation psychologique');
+VALUES (63, 51, 4, '2007-05-16', 'Prise de sang');
 
 INSERT INTO Action
-VALUES (64, 58, 9, '2009-06-14', 'Scanner');
+VALUES (64, 33, 10, '2007-10-22', 'Test de glucose');
 
 INSERT INTO Action
-VALUES (65, 92, 5, '2011-10-22', 'Consultation physiotherapie');
+VALUES (65, 59, 5, '2012-08-20', 'Chirurgie');
 
 INSERT INTO Action
-VALUES (66, 44, 9, '2007-06-18', 'Chirurgie');
+VALUES (66, 46, 2, '2007-06-12', 'Consultation psychologique');
 
 INSERT INTO Action
-VALUES (67, 20, 5, '2012-03-03', 'Medecine nucleaire');
+VALUES (67, 70, 9, '2011-10-23', 'Rayons X');
 
 INSERT INTO Action
-VALUES (68, 2, 2, '2008-10-02', 'Consultation audiologique');
+VALUES (68, 53, 1, '2010-09-14', 'Consultation psychologique');
 
 INSERT INTO Action
-VALUES (69, 83, 7, '2007-10-05', 'Scanner');
+VALUES (69, 87, 8, '2007-04-20', 'Consultation physiotherapie');
 
 INSERT INTO Action
-VALUES (70, 54, 5, '2011-07-08', 'Chirurgie');
+VALUES (70, 97, 4, '2006-03-13', 'Analyse d''urine');
 
 INSERT INTO Action
-VALUES (71, 81, 2, '2008-01-16', 'Medecine nucleaire');
+VALUES (71, 68, 6, '2007-07-09', 'Rayons X');
 
 INSERT INTO Action
-VALUES (72, 58, 1, '2009-06-14', 'Chirurgie');
+VALUES (72, 1, 1, '2010-11-07', 'Test de glucose');
 
 INSERT INTO Action
-VALUES (73, 50, 10, '2006-03-17', 'Biopsie');
+VALUES (73, 22, 3, '2011-02-19', 'Consultation audiologique');
 
 INSERT INTO Action
-VALUES (74, 30, 10, '2012-11-21', 'Consultation physiotherapie');
+VALUES (74, 24, 2, '2010-06-21', 'Consultation physiotherapie');
 
 INSERT INTO Action
-VALUES (75, 36, 5, '2007-05-04', 'Consultation optometrie');
+VALUES (75, 77, 1, '2007-11-05', 'Medecine nucleaire');
 
 INSERT INTO Action
-VALUES (76, 45, 10, '2009-11-07', 'Test de glucose');
+VALUES (76, 28, 9, '2011-01-14', 'Chirurgie');
 
 INSERT INTO Action
-VALUES (77, 82, 9, '2007-05-04', 'Rayons X');
+VALUES (77, 14, 5, '2010-01-12', 'Consultation optometrie');
 
 INSERT INTO Action
-VALUES (78, 100, 7, '2010-08-06', 'Biopsie');
+VALUES (78, 19, 10, '2008-03-05', 'Consultation optometrie');
 
 INSERT INTO Action
-VALUES (79, 33, 2, '2012-02-01', 'Rayons X');
+VALUES (79, 30, 2, '2011-06-24', 'Analyse d''urine');
 
 INSERT INTO Action
-VALUES (80, 75, 7, '2005-05-14', 'Analyse d''urine');
+VALUES (80, 23, 10, '2010-04-27', 'Scanner');
 
 INSERT INTO Action
-VALUES (81, 6, 2, '2010-12-10', 'Prise de sang');
+VALUES (81, 22, 7, '2012-10-08', 'Medecine nucleaire');
 
 INSERT INTO Action
-VALUES (82, 58, 3, '2009-06-14', 'Scanner');
+VALUES (82, 85, 3, '2010-04-07', 'Biopsie');
 
 INSERT INTO Action
-VALUES (83, 92, 9, '2011-10-22', 'Scanner');
+VALUES (83, 21, 8, '2010-11-10', 'Consultation physiotherapie');
 
 INSERT INTO Action
-VALUES (84, 43, 3, '2006-06-22', 'Chirurgie');
+VALUES (84, 94, 1, '2012-02-26', 'Consultation optometrie');
 
 INSERT INTO Action
-VALUES (85, 43, 3, '2009-07-05', 'Test de glucose');
+VALUES (85, 23, 5, '2010-04-27', 'Rayons X');
 
 INSERT INTO Action
-VALUES (86, 67, 6, '2011-01-12', 'Consultation physiotherapie');
+VALUES (86, 23, 9, '2010-04-27', 'Test de glucose');
 
 INSERT INTO Action
-VALUES (87, 70, 9, '2009-06-10', 'Chirurgie');
+VALUES (87, 61, 4, '2008-08-12', 'Rayons X');
 
 INSERT INTO Action
-VALUES (88, 43, 7, '2006-09-26', 'Rayons X');
+VALUES (88, 86, 8, '2012-12-08', 'Consultation psychologique');
 
 INSERT INTO Action
-VALUES (89, 69, 4, '2008-12-06', 'Rayons X');
+VALUES (89, 7, 4, '2009-10-05', 'Consultation psychologique');
 
 INSERT INTO Action
-VALUES (90, 23, 9, '2009-08-21', 'Consultation psychologique');
+VALUES (90, 43, 5, '2012-07-04', 'Rayons X');
 
 INSERT INTO Action
-VALUES (91, 87, 4, '2010-12-11', 'Prise de sang');
+VALUES (91, 41, 7, '2010-12-01', 'Prise de sang');
 
 INSERT INTO Action
-VALUES (92, 39, 9, '2008-11-01', 'Consultation psychologique');
+VALUES (92, 29, 6, '2007-11-26', 'Analyse d''urine');
 
 INSERT INTO Action
-VALUES (93, 66, 10, '2005-12-27', 'Consultation optometrie');
+VALUES (93, 52, 7, '2011-07-05', 'Rayons X');
 
 INSERT INTO Action
-VALUES (94, 14, 10, '2009-08-28', 'Test de glucose');
+VALUES (94, 49, 3, '2012-01-16', 'Prise de sang');
 
 INSERT INTO Action
-VALUES (95, 29, 6, '2009-07-14', 'Consultation optometrie');
+VALUES (95, 7, 9, '2009-08-10', 'Analyse d''urine');
 
 INSERT INTO Action
-VALUES (96, 18, 10, '2011-01-23', 'Consultation audiologique');
+VALUES (96, 59, 5, '2012-08-20', 'Scanner');
 
 INSERT INTO Action
-VALUES (97, 27, 10, '2009-02-14', 'Test de glucose');
+VALUES (97, 6, 10, '2008-12-28', 'Consultation psychologique');
 
 INSERT INTO Action
-VALUES (98, 46, 10, '2009-04-15', 'Analyse d''urine');
+VALUES (98, 92, 1, '2006-04-24', 'Prise de sang');
 
 INSERT INTO Action
-VALUES (99, 51, 9, '2010-08-27', 'Consultation physiotherapie');
+VALUES (99, 48, 5, '2011-12-10', 'Consultation psychologique');
 
 INSERT INTO Action
-VALUES (100, 27, 10, '2009-10-26', 'Medecine nucleaire');
+VALUES (100, 49, 8, '2012-01-16', 'Rayons X');
 

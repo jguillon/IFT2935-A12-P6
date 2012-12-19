@@ -1,30 +1,30 @@
 INSERT INTO Patient
-VALUES (1, 'LAFC62421674', 'Surveillance');
+VALUES (1, 'LAFA16512336', 'Traitement');
 
 INSERT INTO Patient
-VALUES (2, 'DOUA16957783', 'Convalescence');
+VALUES (2, 'DUHA64960077', 'Surveillance');
 
 INSERT INTO Patient
-VALUES (3, 'ROBD84470942', 'Convalescence');
+VALUES (3, 'COSA20630207', 'Surveillance');
 
 INSERT INTO Patient
-VALUES (4, 'LAMA43000719', 'Surveillance');
+VALUES (4, 'LEVA82634274', 'Surveillance');
 
 INSERT INTO Patient
-VALUES (5, 'HELG80925175', 'Traitement');
+VALUES (5, 'FAUA11580680', 'Surveillance');
 
 INSERT INTO Patient
-VALUES (6, 'GRIM71266278', 'Surveillance');
+VALUES (6, 'BISF36446120', 'Surveillance');
 
 INSERT INTO Patient
-VALUES (7, 'ST-A59105791', 'Surveillance');
+VALUES (7, 'FAUA11580680', 'Surveillance');
 
 INSERT INTO Patient
-VALUES (8, 'BEAS43750284', 'Traitement');
+VALUES (8, 'GUIM36892419', 'Traitement');
 
 INSERT INTO Patient
-VALUES (9, 'DESA32800793', 'Traitement');
+VALUES (9, 'BOUA68771924', 'Traitement');
 
 INSERT INTO Patient
-VALUES (10, 'GROF27009626', 'Surveillance');
+VALUES (10, 'SIGA51978071', 'Surveillance');
 

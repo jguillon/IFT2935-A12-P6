@@ -1,6 +1,7 @@
 package doctorActivities;
 
 import patientActivities.PatientSendInfos;
+import sam.SuiviMedical.GraphActivity;
 import sam.SuiviMedical.Infos;
 import sam.SuiviMedical.R;
 import android.app.Activity;
@@ -30,6 +31,7 @@ public class PatientEventsList extends Activity implements OnItemClickListener {
 	private ArrayAdapter<String> openEventsLA, closedEventsLA; 
 	private Infos session;
 	private Button addEvent;
+	private Button showStatus;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class PatientEventsList extends Activity implements OnItemClickListener {
 		op 				= (TextView) findViewById(R.id.textOpenEvent);
 		cl				= (TextView) findViewById(R.id.textEventClosed);
 		addEvent		= (Button)   findViewById(R.id.addEvent);
+		showStatus		= (Button)   findViewById(R.id.StatusBtn);
 		
 
 		i 				= getIntent();
@@ -87,6 +90,15 @@ public class PatientEventsList extends Activity implements OnItemClickListener {
 			@Override
 			public void onClick(View view) {
 				Intent newEvent = new Intent(view.getContext(), EventCreation.class);
+				newEvent.putExtra("session", session);
+				startActivity(newEvent);
+			}
+		});
+		
+		showStatus.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent newEvent = new Intent(view.getContext(), GraphActivity.class);
 				newEvent.putExtra("session", session);
 				startActivity(newEvent);
 			}
