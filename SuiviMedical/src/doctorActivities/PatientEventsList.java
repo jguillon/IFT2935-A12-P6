@@ -54,7 +54,7 @@ public class PatientEventsList extends Activity implements OnItemClickListener,
 		op = (TextView) findViewById(R.id.textOpenEvent);
 		cl = (TextView) findViewById(R.id.textEventClosed);
 		addEvent = (Button) findViewById(R.id.addEvent);
-		showStatus = (Button) findViewById(R.id.StatusBtn);
+		//TODO showStatus = (Button) findViewById(R.id.);
 
 		i = getIntent();
 		session = (Infos) i.getSerializableExtra("session");

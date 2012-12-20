@@ -58,7 +58,6 @@
         <item>Frequence cardiaque</item>
         <item>IMC</item>
         <item>Saturation O2</item>
-        <item>Photographie</item>
 	</string-array>
     
 	<string-array name="unit_array">
@@ -70,7 +69,6 @@
 	   <item>pulsations par minutes.</item>
 	   <item></item>
 	   <item>%.</item>
-	   <item></item>
 	</string-array>
 	
     <string name="title_valeurs">Signes vitaux</string> 

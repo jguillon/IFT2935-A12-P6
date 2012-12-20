@@ -50,12 +50,6 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="TextView" android:layout_marginBottom="10dp"/>
-
-	    <Button
-	        android:id="@+id/StatusBtn"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="@string/status" />
 	
 	    <TextView
 	        android:id="@+id/textOpenEvent"
@@ -69,7 +63,7 @@
 	    <ListView
 	        android:id="@+id/listEventOpen"
 	        android:layout_width="match_parent"
-	        android:layout_height="200dp" >
+	        android:layout_height="120dp" >
 	
 	    </ListView>
 	
@@ -84,7 +78,7 @@
 	    <ListView
 	        android:id="@+id/listEventClosed"
 	        android:layout_width="match_parent"
-	        android:layout_height="200dp" >
+	        android:layout_height="120dp" >
 	    </ListView>
 	
 	</LinearLayout>

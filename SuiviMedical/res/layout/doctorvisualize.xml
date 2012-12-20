@@ -3,6 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+    
+   <TextView  android:id="@+id/titleEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge" android:textSize="30dp" android:layout_marginBottom="10dp"/>
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -64,35 +69,32 @@
             android:scrollbars="horizontal" >
 
             <RadioButton
-                android:id="@+id/radioAll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/all" />
-
-            <RadioButton
                 android:id="@+id/radioDiagnosis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/diagnosis" />
+                android:text="@string/diagnosis" 
+                android:textSize="10dp"/>
 
             <RadioButton
                 android:id="@+id/radioReport"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/report" />
+                android:text="@string/report"
+                android:textSize="10dp" />
 
             <RadioButton
                 android:id="@+id/radioPrescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/prescription" />
+                android:text="@string/prescription"
+                android:textSize="10dp" />
 
             <RadioButton
                 android:id="@+id/radioStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/status" />
+                android:text="@string/status" 
+                android:textSize="10dp"/>
         </RadioGroup>
 
     </HorizontalScrollView>

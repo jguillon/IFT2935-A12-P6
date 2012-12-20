@@ -61,10 +61,18 @@ def gen(t, i):
 	no = i+1
 	dateD = dates[0]
 	dateF = dates[1]
-	values = u''.join(("  VALUES (", str(no),", ", \
+	prob = int(random.random()*2);
+	if( prob == 0) :
+		values = u''.join(("  VALUES (", str(no),", ", \
 		     	          	         str(int(random.random()*nb_dossiers) + 1) , ", ", \
 					                 "'", dateD.isoformat(), "', ", \
 					                 "'", dateF.isoformat(), "', ", \
+					                 "'", desc,"');")).encode('utf-8').strip()
+	else :
+		values = u''.join(("  VALUES (", str(no),", ", \
+		     	          	         str(int(random.random()*nb_dossiers) + 1) , ", ", \
+					                 "'", dateD.isoformat(), "', ", \
+					                 "'", "NULL", "', ", \
 					                 "'", desc,"');")).encode('utf-8').strip()
 	print "INSERT INTO " + t
 	print values

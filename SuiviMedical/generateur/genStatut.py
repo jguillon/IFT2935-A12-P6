@@ -3,31 +3,32 @@
 import random
 import unicodedata
 import datetime
-from events import Events
+from noassPat import Patients
 import statusCreator
 import genAction
 
-nb_event = len(Events)
+nb_dossiers = len(Patients)
 
-# def genTime() :
-# 	time = [0,0]
-# 	time[0] = int(random.random()*24)
-# 	time[1] = int(random.random()*50 + 10)
-# 	return time
+def genDate() :
+ 	d = int(random.random() * 28) + 1
+	m = int(random.random() * 12) + 1
+	y = 2005 + int(random.random() * 8)
+	date1 = datetime.date(y,m,d)
+ 	return date1
 
 def gen(t, i):
 	status = statusCreator.genStatus()
 	statusType = status[0]
 	statusValue = status[1]
-	noevent = int(random.random()*nb_event)
-	dateA = genAction.genDates(noevent)
+	nodossier = int(random.random()*nb_dossiers)
+	dateA = genDate();
 	statusTimestamp = dateA.isoformat()
 	statusTimestamp += " " + str(int(random.random()*24)) + ":" + str(int(random.random()*50 + 10))
 	
 	no = i+1
 	values = u''.join(["  VALUES (", \
 					                str(no), ", ", \
-		     		                str(noevent + 1) , ", ", \
+		     		                str(nodossier + 1) , ", ", \
 						            "'", statusTimestamp, "'", ", ", \
 						            "'", str(statusType),"',", \
 						            str(statusValue), ");"])

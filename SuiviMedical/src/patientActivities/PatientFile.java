@@ -1,9 +1,12 @@
 package patientActivities;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import sam.SuiviMedical.Infos;
 import sam.SuiviMedical.R;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -13,18 +16,19 @@ import android.view.View.OnClickListener;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import database.DataSource;
 
 public class PatientFile extends Activity implements OnItemClickListener {
 
+	DataSource ds;
 	TextView info1, info2, info3, info4, op, cl;
 	ListView openEventsLV, closedEventsLV;
-	ArrayList<String> openEventsL, closedEventsL;
+	List<HashMap<String, String>> openEventsL, closedEventsL;
 	Adapter adapter;
 	Intent i;
 	Infos session;
@@ -38,6 +42,7 @@ public class PatientFile extends Activity implements OnItemClickListener {
 
 		i = getIntent();
 		session = (Infos) i.getSerializableExtra("session");
+		ds = new DataSource(this);
 		setInfosPatient(session.getUser());
 
 		info1 = (TextView) findViewById(R.id.info1Patient);
@@ -80,37 +85,27 @@ public class PatientFile extends Activity implements OnItemClickListener {
 			}
 		});
 
-		openEventsL = new ArrayList<String>();
-		openEventsL.add("Fracture bras");
-		openEventsL.add("Chute parachute");
-		openEventsL.add("Mal de tête intense");
+		this.setLists(session.getUser());
 
-		adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, openEventsL);
-		openEventsLV.setAdapter((ListAdapter) adapter);
-		openEventsLV.setOnItemClickListener(this);
+	}
 
-		closedEventsL = new ArrayList<String>();
-		closedEventsL.add("Enflure");
-		closedEventsL.add("Rougeurs");
-		closedEventsL.add("Plaques rouges");
-
-		adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, closedEventsL);
-		closedEventsLV.setAdapter((ListAdapter) adapter);
-		closedEventsLV.setOnItemClickListener(this);
-
+	@Override
+	public void onResume() {
+		super.onResume();
+		this.setLists(session.getUser());
 	}
 
 	public void setInfosPatient(String user) {
 
-		DataSource ds = new DataSource(this);
 		ds.open();
 		Cursor c = ds.selectWhere(DataSource.TBL_PERSON, "fName", "NoAss = \""
 				+ user + "\"");
 		firstname = checkAndGet("fName", c);
-		c = ds.selectWhere(DataSource.TBL_PERSON, "mName", "NoAss = \"" + user
+		c = ds.rawQuery("SELECT mName FROM PERSON WHERE NoAss = \"" + user
 				+ "\"");
+		// c = ds.selectWhere(DataSource.TBL_PERSON, "mName", "NoAss = \"" +
+		// user
+		// + "\"");
 		middlename = checkAndGet("mName", c);
 		c = ds.selectWhere(DataSource.TBL_PERSON, "lName", "NoAss = \"" + user
 				+ "\"");
@@ -160,15 +155,71 @@ public class PatientFile extends Activity implements OnItemClickListener {
 		return "";
 	}
 
+	@SuppressLint({ "UseSparseArrays", "UseSparseArrays" })
+	public void setLists(String user) {
+		HashMap<String, String> hm;
+		ds.open();
+
+		Cursor c = ds
+				.selectWhere(
+						DataSource.TBL_EVENT,
+						"Descr, EventNo",
+						"EVENT.CloseDate = \"NULL\" AND EVENT.DossierNo = (SELECT DossierNo FROM DOSSIER WHERE DOSSIER.NoAss = \""
+								+ user + "\")");
+		openEventsL = new ArrayList<HashMap<String, String>>();
+
+		while (c.moveToNext()) {
+			hm = new HashMap<String, String>();
+			hm.put("EventNo", c.getString(1));
+			hm.put("Description", c.getString(0));
+			openEventsL.add(hm);
+
+		}
+
+		c = ds.selectWhere(
+				DataSource.TBL_EVENT,
+				"Descr, EventNo",
+				"EVENT.CloseDate != \"NULL\" AND EVENT.DossierNo = (SELECT DossierNo FROM DOSSIER WHERE DOSSIER.NoAss = \""
+						+ user + "\")");
+		closedEventsL = new ArrayList<HashMap<String, String>>();
+
+		while (c.moveToNext()) {
+			hm = new HashMap<String, String>();
+			hm.put("EventNo", c.getString(1));
+			hm.put("Description", c.getString(0));
+			closedEventsL.add(hm);
+		}
+
+		ds.close();
+
+		String[] lists = new String[] { "Description" };
+		int[] listi = new int[] { R.id.affiche };
+
+		adapter = new SimpleAdapter(this, openEventsL, R.layout.textview,
+				lists, listi);
+		openEventsLV.setAdapter((ListAdapter) adapter);
+		openEventsLV.setOnItemClickListener(this);
+
+		adapter = new SimpleAdapter(this, closedEventsL, R.layout.textview,
+				lists, listi);
+		closedEventsLV.setAdapter((ListAdapter) adapter);
+		closedEventsLV.setOnItemClickListener(this);
+	}
+
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
 		if (parent == openEventsLV) {
-			session.setActiveEvent(openEventsL.get(pos));
+			session.setActiveEvent(openEventsL.get(pos).get("EventNo"));
 			i = new Intent(view.getContext(), PatientEvent.class);
+			i.putExtra("session", session);
 			startActivity(i);
+			// Toast.makeText(PatientFile.this, "pos :" + pos + " EventNo : " +
+			// openEventsL.get(pos).get("EventNo") + " active event : " +
+			// session.getActiveEvent(), Toast.LENGTH_LONG).show();
 		} else if (parent == closedEventsLV) {
-			session.setActiveEvent(closedEventsL.get(pos));
+			session.setActiveEvent(closedEventsL.get(pos).get("EventNo"));
 			i = new Intent(view.getContext(), PatientEvent.class);
+			i.putExtra("session", session);
 			startActivity(i);
 		}
 	}

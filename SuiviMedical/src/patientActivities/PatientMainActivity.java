@@ -30,6 +30,8 @@ public class PatientMainActivity extends Activity {
 		skype = (Button) findViewById(R.id.bSkypeP);
 		urgence = (Button) findViewById(R.id.bAlertP);
 		simple = new AlertDialog.Builder(this);
+		// Toast.makeText(PatientMainActivity.this, session.getUser(),
+		// Toast.LENGTH_LONG).show();
 
 		dossier.setOnClickListener(new View.OnClickListener() {
 			@Override

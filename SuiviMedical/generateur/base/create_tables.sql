@@ -23,8 +23,8 @@ CREATE TABLE Action (
 */
 CREATE TABLE Command (
        PrescriptionNo INTEGER NOT NULL,
+	   commandDate    TEXT,
        PharmacyNo     INTEGER NOT NULL,
-       commandDate    TEXT,
        PRIMARY KEY (PrescriptionNo, PharmacyNo)
 );
 
@@ -67,7 +67,7 @@ CREATE TABLE Dossier (
        DossierNo INTEGER     NOT NULL,
        NoAss     VARCHAR(12) NOT NULL,
        PRIMARY KEY (DossierNo),
-       FOREIGN KEY (NoAss) REFERENCES Patient(NoAss)
+       FOREIGN KEY (NoAss) REFERENCES Person(NoAss)
 );
 
 CREATE TABLE Event(
@@ -145,15 +145,15 @@ CREATE TABLE Report (
 CREATE TABLE Role (
        NoAss      VARCHAR(12) NOT NULL,
        PersonRole VARCHAR(12) NOT NULL,
-       PRIMARY KEY (NoAss)
+       PRIMARY KEY (NoAss, PersonRole)
 );
 
 CREATE TABLE Statut (
        StatusNo   INTEGER     NOT NULL,
-       EventNo    INTEGER     NOT NULL,
+       DossierNo    INTEGER     NOT NULL,
        Timestmp   DATE        NOT NULL,
        StatusType VARCHAR(25) NOT NULL,
        Val        INTEGER     NOT NULL,
        PRIMARY KEY (StatusNo),
-       FOREIGN KEY (EventNo) REFERENCES Event(EventNo)       
+       FOREIGN KEY (DossierNo) REFERENCES Dossier(DossierNo)       
 );

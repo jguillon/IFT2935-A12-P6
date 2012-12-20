@@ -12,6 +12,7 @@ public class Infos implements Serializable {
 	private String userPermission;
 	private String activePatient;
 	private String activeEvent;
+	private String activeMed;
 
 	public Infos(String user, String userPermission) {
 		this.user = user;
@@ -33,6 +34,10 @@ public class Infos implements Serializable {
 
 	public String getActiveEvent() {
 		return activeEvent;
+	}
+	 
+	public String getActiveMed(){
+		return activeMed;
 	}
 
 	public static Boolean getMedReminder() {
@@ -66,6 +71,13 @@ public class Infos implements Serializable {
 		else
 			this.activeEvent = null;
 	}
+	
+	public void setActiveMed(String med){
+		if(med != null)
+			this.activeMed = med;
+		else
+			this.activeMed = null;
+	}
 
 	public static void setMedReminder(Boolean value) {
 		medReminder = value;
@@ -75,6 +87,7 @@ public class Infos implements Serializable {
 		setMedReminder(true);
 		this.activeEvent = null;
 		this.activePatient = null;
+		this.activeMed = null;
 		this.user = null;
 		this.userPermission = null;
 	}

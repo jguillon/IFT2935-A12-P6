@@ -77,6 +77,10 @@ public class DataSource {
 		return this.tables.get(tbl_name).rawSelect(q);
 	}
 	
+	public Cursor rawQuery(String q){
+		return database.rawQuery(q, null);
+	}
+	
 	// fields is field name if single
 	// or list of fields if many, e.g. (field1, field2, ...)
 	// or * for all fields
@@ -97,6 +101,7 @@ public class DataSource {
 		return this.tables.get(tbl_name).selectWhere(fields, where);
 	}
 	
+
 	public void test() {
         Log.w("dbproto", "DataSource::test start");
         T_Person.importAtCursor(this.tables.get(TBL_PERSON).selectAll());
