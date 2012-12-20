@@ -16,7 +16,7 @@ import android.database.sqlite.SQLiteDatabase;
  */
 
 public class T_Statut extends SQLTable {
-	private static final String T_NAME = "T_Statut";
+	private static final String T_NAME = "Statut";
 	private static final String[] COLUMNS = {"StatusNo", "EventNo", "Timestmp", "StatusType",
 		                                     "Val"};
 	private static final String INSERT_TEMPLATE = "INSERT INTO "    +

@@ -67,7 +67,7 @@ CREATE TABLE Dossier (
        DossierNo INTEGER     NOT NULL,
        NoAss     VARCHAR(12) NOT NULL,
        PRIMARY KEY (DossierNo),
-       FOREIGN KEY (NoAss) REFERENCES Person(NoAss)
+       FOREIGN KEY (NoAss) REFERENCES Patient(NoAss)
 );
 
 CREATE TABLE Event(

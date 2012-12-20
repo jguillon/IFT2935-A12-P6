@@ -1,5 +1,7 @@
 package doctorActivities;
 
+import patientActivities.PatientSendInfos;
+import sam.SuiviMedical.GraphActivity;
 import sam.SuiviMedical.Infos;
 import sam.SuiviMedical.R;
 import android.app.Activity;
@@ -30,11 +32,23 @@ public class PatientEventsList extends Activity implements OnItemClickListener {
 	private ArrayAdapter<String> openEventsLA, closedEventsLA;
 	private Infos session;
 	private Button addEvent;
-
+	private Button showStatus;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.doctoreventlist);
+		
+		openEventsLV 	= (ListView) findViewById(R.id.listEventOpen);
+		closedEventsLV 	= (ListView) findViewById(R.id.listEventClosed);
+		info1TV 		= (TextView) findViewById(R.id.info1Patient);
+		info2TV 		= (TextView) findViewById(R.id.info2Patient);
+		info3TV 		= (TextView) findViewById(R.id.info3Patient);
+		op 				= (TextView) findViewById(R.id.textOpenEvent);
+		cl				= (TextView) findViewById(R.id.textEventClosed);
+		addEvent		= (Button)   findViewById(R.id.addEvent);
+		showStatus		= (Button)   findViewById(R.id.StatusBtn);
+		showStatus		= (Button)   findViewById(R.id.StatusBtn);
 
 		openEventsLV = (ListView) findViewById(R.id.listEventOpen);
 		closedEventsLV = (ListView) findViewById(R.id.listEventClosed);
@@ -90,6 +104,33 @@ public class PatientEventsList extends Activity implements OnItemClickListener {
 			public void onClick(View view) {
 				Intent newEvent = new Intent(view.getContext(),
 						EventCreation.class);
+				newEvent.putExtra("session", session);
+				startActivity(newEvent);
+			}
+		});
+		
+		showStatus.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent newEvent = new Intent(view.getContext(), GraphActivity.class);
+				newEvent.putExtra("session", session);
+				startActivity(newEvent);
+			}
+		});
+		
+		showStatus.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent newEvent = new Intent(view.getContext(), GraphActivity.class);
+				newEvent.putExtra("session", session);
+				startActivity(newEvent);
+			}
+		});
+		
+		showStatus.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent newEvent = new Intent(view.getContext(), GraphActivity.class);
 				newEvent.putExtra("session", session);
 				startActivity(newEvent);
 			}

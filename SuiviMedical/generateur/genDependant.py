@@ -53,7 +53,7 @@ if __name__ == '__main__':
 			list = u''.join((list,'u\'', noasslist[i], '\''))
 	
 	file = open('base/dependance.sql', 'w')
-	#dependanceFile = u''.join((dependanceFile, "\n COMMIT;"))
+	dependanceFile = u''.join((dependanceFile, "\n COMMIT;"))
 	file.write(dependanceFile)		
 	
 	file = open('noassDep.py','w')
