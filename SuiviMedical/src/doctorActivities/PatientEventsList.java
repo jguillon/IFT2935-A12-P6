@@ -2,7 +2,6 @@ package doctorActivities;
 
 import java.util.ArrayList;
 
-import database.DataSource;
 import sam.SuiviMedical.GraphActivity;
 import sam.SuiviMedical.Infos;
 import sam.SuiviMedical.R;
@@ -18,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import database.DataSource;
 
 /**
  * Page listant les évènements (actifs ou non) du patient sélectionné à la page
@@ -37,7 +37,7 @@ public class PatientEventsList extends Activity implements OnItemClickListener,
 	private Infos session;
 	private Button addEvent;
 	private Button showStatus;
-	private String noAssurance, firstname, lastname, middlename, birthdate,
+	private String firstname, lastname, middlename, birthdate,
 			sex, address, notel, email;
 
 	@Override
@@ -155,13 +155,13 @@ public class PatientEventsList extends Activity implements OnItemClickListener,
 		DataSource ds = new DataSource(this);
 		ds.open();
 		Cursor c = ds.selectWhere(DataSource.TBL_DOSSIER, "DossierNo",
-				"NoAss = \""+patient+"\"");
-		String noDossier = checkAndGetFirst("DossierNo", c) ;
+				"NoAss = \"" + patient + "\"");
+		String noDossier = checkAndGetFirst("DossierNo", c);
 		c = ds.selectWhere(DataSource.TBL_EVENT, "Descr, CloseDate",
-				"DossierNo = \""+noDossier+"\"");
+				"DossierNo = \"" + noDossier + "\"");
 		if (c != null && c.getCount() > 0 && c.moveToFirst()) {
 			for (int i = 0; i < c.getCount(); i++) {
-				if(c.getString(c.getColumnIndex("CloseDate")) == "")
+				if (c.getString(c.getColumnIndex("CloseDate")) == "")
 					openEventsL.add(c.getString(c.getColumnIndex("Descr")));
 				else
 					closedEventsL.add(c.getString(c.getColumnIndex("Descr")));
@@ -172,7 +172,7 @@ public class PatientEventsList extends Activity implements OnItemClickListener,
 		}
 		ds.close();
 	}
-	
+
 	private String checkAndGetFirst(String s, Cursor c) {
 		if (c != null && c.getCount() > 0 && c.moveToFirst())
 			return c.getString(c.getColumnIndex(s));
@@ -182,24 +182,23 @@ public class PatientEventsList extends Activity implements OnItemClickListener,
 	@Override
 	public void onClick(View v) {
 		if (v == addEvent) {
-			Intent newEvent = new Intent(v.getContext(), EventCreation.class);
-			newEvent.putExtra("session", session);
-			startActivity(newEvent);
+			i = new Intent(v.getContext(), EventCreation.class);
+			i.putExtra("session", session);
+			startActivity(i);
 		} else if (v == op) {
 			if (openEventsLV.getVisibility() == View.GONE)
 				openEventsLV.setVisibility(View.VISIBLE);
 			else
 				openEventsLV.setVisibility(View.GONE);
-		} else if(v == cl) {
+		} else if (v == cl) {
 			if (closedEventsLV.getVisibility() == View.GONE)
 				closedEventsLV.setVisibility(View.VISIBLE);
 			else
 				closedEventsLV.setVisibility(View.GONE);
-		} else if(v == showStatus) {
-			Intent newEvent = new Intent(v.getContext(),
-					GraphActivity.class);
-			newEvent.putExtra("session", session);
-			startActivity(newEvent);
+		} else if (v == showStatus) {
+			i = new Intent(v.getContext(), GraphActivity.class);
+			i.putExtra("session", session);
+			startActivity(i);
 		}
 	}
 
