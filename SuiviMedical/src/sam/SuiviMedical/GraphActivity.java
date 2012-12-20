@@ -1,14 +1,12 @@
 package sam.SuiviMedical;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-
-import database.DataSource;
-import sam.SuiviMedical.R;
-import graphClasses.*;
+import graphClasses.GraphView;
 import graphClasses.GraphView.GraphViewData;
+import graphClasses.GraphViewSeries;
+import graphClasses.LineGraphView;
+
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -23,7 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Toast;
+import database.DataSource;
 
 public class GraphActivity extends Activity implements OnItemSelectedListener,
 		OnClickListener {
@@ -51,11 +49,9 @@ public class GraphActivity extends Activity implements OnItemSelectedListener,
 		buttongroup = (RadioGroup) findViewById(R.id.time_buttons);
 		RadioButton btn = (RadioButton) findViewById(R.id.semaine);
 		RadioButton btn2 = (RadioButton) findViewById(R.id.annee);
-		btn2.setChecked(true); 
+		btn2.setChecked(true);
 		btn.setOnClickListener(this);
 		btn2.setOnClickListener(this);
-		
-
 
 	}
 
@@ -71,7 +67,7 @@ public class GraphActivity extends Activity implements OnItemSelectedListener,
 		if (btn.getText().equals("derniere semaine")) {
 
 			semaine = true;
-	
+
 		} else {
 			semaine = false;
 
@@ -87,7 +83,7 @@ public class GraphActivity extends Activity implements OnItemSelectedListener,
 		String item = spinner.getSelectedItem().toString();
 		type = item;
 		update(type);
-		
+
 	}
 
 	@Override
@@ -100,16 +96,16 @@ public class GraphActivity extends Activity implements OnItemSelectedListener,
 	public void update(String type) {
 
 		LinearLayout layout = (LinearLayout) findViewById(R.id.graph1);
-		LinearLayout graph = new LinearLayout(this); 
+		LinearLayout graph = new LinearLayout(this);
 		try {
 			layout.removeAllViewsInLayout();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		if(createGraph(type)!=null){
-		graph.addView(createGraph(type));
-		layout.invalidate();
-		layout.addView(graph);
+		if (createGraph(type) != null) {
+			graph.addView(createGraph(type));
+			layout.invalidate();
+			layout.addView(graph);
 		}
 
 	}
@@ -117,7 +113,6 @@ public class GraphActivity extends Activity implements OnItemSelectedListener,
 	public GraphView createGraph(String type) {
 		String title = "";
 		GraphViewSeries series = new GraphViewSeries(new GraphViewData[] {});
-
 
 		if (type.equals("Temperature")) {
 			title = "Temperature en ¡C";
@@ -144,78 +139,87 @@ public class GraphActivity extends Activity implements OnItemSelectedListener,
 			title = "IMC";
 		}
 
-//			series = new GraphViewSeries(new GraphViewData[] {
-//				new GraphViewData(1, 2.13), new GraphViewData(2, 1.31),
-//				new GraphViewData(3, 3.03), new GraphViewData(4, 1.00),
-//				new GraphViewData(5, 1.98) });
-			GraphView graphView = null;
-			if(getValues(type).length > 0){
+		// series = new GraphViewSeries(new GraphViewData[] {
+		// new GraphViewData(1, 2.13), new GraphViewData(2, 1.31),
+		// new GraphViewData(3, 3.03), new GraphViewData(4, 1.00),
+		// new GraphViewData(5, 1.98) });
+		GraphView graphView = null;
+		if (getValues(type).length > 0) {
 			series = new GraphViewSeries(getValues(type));
 			graphView = new LineGraphView(this, title);
 			graphView.addSeries(series);
-			}
-			if(getLabels(type).length > 0){
+		}
+		if (getLabels(type).length > 0) {
 			graphView.setHorizontalLabels(getLabels(type));
-			}
-			
-			return graphView;
+		}
+
+		return graphView;
 
 	}
-	
-	public GraphViewData[] getValues(String type) throws NullPointerException{
+
+	public GraphViewData[] getValues(String type) throws NullPointerException {
 		int iter = 0;
 		ds.open();
 		ArrayList<GraphViewData> list = new ArrayList<GraphViewData>();
 		Cursor val = null;
 		if (semaine) {
-		//TODO eplace EventNo = 1 with EvenNo = session.getEventNo
-			val = ds.selectWhere(DataSource.TBL_STATUT, "Val, Timestmp", "StatusType= \""+type+"\" AND Timestmp >= datetime('now', '-7 days')");
-			//val = ds.selectAll(DataSource.TBL_STATUT);
+			// TODO eplace EventNo = 1 with EvenNo = session.getEventNo
+			val = ds.selectWhere(DataSource.TBL_STATUT, "Val, Timestmp",
+					"StatusType= \"" + type
+							+ "\" AND Timestmp >= datetime('now', '-7 days')");
+			// val = ds.selectAll(DataSource.TBL_STATUT);
 		} else {
-			//val = ds.selectWhere(DataSource.TBL_STATUT, "Val, Timestmp", "EventNo = \"50\" " +
-			//		"AND StatusType= \""+type+"\" AND Timestmp >= datetime('now', '-1 years')");
-			val = ds.selectWhere(DataSource.TBL_STATUT, "Val, Timestmp", "StatusType= \""+type+"\" AND Timestmp >= datetime('now', '-1 years')");
+			// val = ds.selectWhere(DataSource.TBL_STATUT, "Val, Timestmp",
+			// "EventNo = \"50\" " +
+			// "AND StatusType= \""+type+"\" AND Timestmp >= datetime('now', '-1 years')");
+			val = ds.selectWhere(DataSource.TBL_STATUT, "Val, Timestmp",
+					"StatusType= \"" + type
+							+ "\" AND Timestmp >= datetime('now', '-1 years')");
 		}
-		if(val != null){
-		if(val.moveToFirst()){
-			val.moveToFirst();
-			do{
-				String value = val.getString(val.getColumnIndex("Val"));
-				list.add(iter, new GraphViewData(iter, Double.parseDouble(value)));
-				 Log.w("add", value);
-				iter++;
-			} while (val.moveToNext());
-			
+		if (val != null) {
+			if (val.moveToFirst()) {
+				val.moveToFirst();
+				do {
+					String value = val.getString(val.getColumnIndex("Val"));
+					list.add(iter,
+							new GraphViewData(iter, Double.parseDouble(value)));
+					Log.w("add", value);
+					iter++;
+				} while (val.moveToNext());
+
+			}
 		}
-		}
-		
+
 		return list.toArray(new GraphViewData[list.size()]);
 	}
-	
-	public String[] getLabels(String type){
+
+	public String[] getLabels(String type) {
 		int iter = 0;
 		ds.open();
 		ArrayList<String> list = new ArrayList<String>();
 		Cursor val = null;
 		if (semaine) {
-		//TODO eplace EventNo = 1 with EvenNo = session.getEventNo
-			val = ds.selectWhere(DataSource.TBL_STATUT, "Timestmp", "EventNo = \"1\" " +
-					"AND StatusType= \""+type+"\" AND Timestmp >= datetime('now', '-7 days')");
+			// TODO eplace EventNo = 1 with EvenNo = session.getEventNo
+			val = ds.selectWhere(DataSource.TBL_STATUT, "Timestmp",
+					"EventNo = \"1\" " + "AND StatusType= \"" + type
+							+ "\" AND Timestmp >= datetime('now', '-7 days')");
 		} else {
-			val = ds.selectWhere(DataSource.TBL_STATUT, "Timestmp", "EventNo = \"1\" " +
-					"AND StatusType= \""+type+"\" AND Timestmp >= datetime('now', '-1 years')");
+			val = ds.selectWhere(DataSource.TBL_STATUT, "Timestmp",
+					"EventNo = \"1\" " + "AND StatusType= \"" + type
+							+ "\" AND Timestmp >= datetime('now', '-1 years')");
 		}
-		if(val != null){
-	    
-	   if(val.moveToFirst()){
-			val.moveToFirst();
-			do{
-				String label = val.getString(val.getColumnIndex("Timestmp"));
-				String[] date = label.split("-");
-				list.add(iter, date[2]);
-				iter++;
-			} while (val.moveToNext());
-	   }
+		if (val != null) {
+
+			if (val.moveToFirst()) {
+				val.moveToFirst();
+				do {
+					String label = val
+							.getString(val.getColumnIndex("Timestmp"));
+					String[] date = label.split("-");
+					list.add(iter, date[2]);
+					iter++;
+				} while (val.moveToNext());
+			}
 		}
 		return list.toArray(new String[list.size()]);
 

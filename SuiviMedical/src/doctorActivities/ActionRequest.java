@@ -4,7 +4,6 @@ import sam.SuiviMedical.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,11 +18,12 @@ public class ActionRequest extends Activity implements OnClickListener {
 	Button biopsy;
 	Button glucose;
 	Button psy;
-	
+
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.doctoractions);
-		
+
 		simple = new AlertDialog.Builder(this);
 		sang = (Button) findViewById(R.id.blood);
 		urine = (Button) findViewById(R.id.urinalysis);
@@ -31,7 +31,7 @@ public class ActionRequest extends Activity implements OnClickListener {
 		biopsy = (Button) findViewById(R.id.biopsy);
 		glucose = (Button) findViewById(R.id.glucose);
 		psy = (Button) findViewById(R.id.psy);
-		
+
 		sang.setOnClickListener(this);
 		urine.setOnClickListener(this);
 		xray.setOnClickListener(this);
@@ -40,7 +40,7 @@ public class ActionRequest extends Activity implements OnClickListener {
 		psy.setOnClickListener(this);
 
 	}
-	
+
 	@Override
 	public void onClick(View view) {
 		if (view == sang) {
@@ -57,47 +57,47 @@ public class ActionRequest extends Activity implements OnClickListener {
 			dialogQuestion("prise de taux de glucose");
 		}
 
-
 	}
 
-	public void dialogQuestion(String action){
-		
-		simple.setMessage("Êtes-vous certain de vouloir demander un(e) "+ action+" pour ce dossier ?");
-        simple.setCancelable(false);
-        simple.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
-        	 @Override
+	public void dialogQuestion(String action) {
+
+		simple.setMessage("Êtes-vous certain de vouloir demander un(e) "
+				+ action + " pour ce dossier ?");
+		simple.setCancelable(false);
+		simple.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+			@Override
 			public void onClick(DialogInterface dialog, int id) {
-        		 	dialogConfirmation();
-    				dialog.cancel();
-        	 }
-        	 });
-        simple.setNegativeButton("Non", new DialogInterface.OnClickListener() {
-        	 @Override
+				dialogConfirmation();
+				dialog.cancel();
+			}
+		});
+		simple.setNegativeButton("Non", new DialogInterface.OnClickListener() {
+			@Override
 			public void onClick(DialogInterface dialog, int id) {
-    				dialog.cancel();
-        	 }
-        	 });
-        simple.create();
-        simple.setTitle("Confirmation");
-        simple.setIcon(R.drawable.patient_file);
-        simple.show();
+				dialog.cancel();
+			}
+		});
+		simple.create();
+		simple.setTitle("Confirmation");
+		simple.setIcon(R.drawable.patient_file);
+		simple.show();
 	}
-	
-	public void dialogConfirmation(){
-		
-		AlertDialog.Builder  simple1 = new AlertDialog.Builder(this);
+
+	public void dialogConfirmation() {
+
+		AlertDialog.Builder simple1 = new AlertDialog.Builder(this);
 		simple1.setMessage("La demande d'action a été ajoutée au dossier.");
-        simple1.setCancelable(false);
-        simple1.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-        	 @Override
+		simple1.setCancelable(false);
+		simple1.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			@Override
 			public void onClick(DialogInterface dialog, int id) {
-        		 
-    				finish();
-        	 }
-        	 });
-        simple1.create();
-        simple1.setTitle("Confirmation");
-        simple1.setIcon(R.drawable.patient_file);
-        simple1.show();
+
+				finish();
+			}
+		});
+		simple1.create();
+		simple1.setTitle("Confirmation");
+		simple1.setIcon(R.drawable.patient_file);
+		simple1.show();
 	}
 }

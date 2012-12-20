@@ -40,6 +40,8 @@ public class SuiviMedicalActivity extends Activity implements OnClickListener {
 		
 		String login = loginET.getText().toString();
 		String pswd = passwordET.getText().toString();
+		login = "LECA61292787"; //TODO A supprimer
+		pswd = login; //TODO A modifier
 		//On déclare un curseur sur la table retournée par la requête SQL
 		Cursor roleC = ds.selectWhere(DataSource.TBL_ROLE, "PersonRole", "NoAss = \""+login+"\"");
 		
@@ -49,6 +51,7 @@ public class SuiviMedicalActivity extends Activity implements OnClickListener {
 			roleC.moveToFirst();
 			//On récupère l'index de la colonne qui nous intéresse et la chaîne qu'elle contient
 			String role = roleC.getString( roleC.getColumnIndex("PersonRole") );
+			role = "Doctor"; //TODO A Supprimer
 			//Et enfin, on n'oublie pas de refermer la base de données.
 			ds.close();
 			Infos session = new Infos(login, role);
