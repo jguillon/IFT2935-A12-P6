@@ -1,5 +1,7 @@
 package doctorActivities;
 
+import java.util.ArrayList;
+
 import database.DataSource;
 import sam.SuiviMedical.GraphActivity;
 import sam.SuiviMedical.Infos;
@@ -28,7 +30,7 @@ public class PatientEventsList extends Activity implements OnItemClickListener,
 		OnClickListener {
 
 	private Intent i;
-	private String[] openEventsL, closedEventsL;
+	private ArrayList<String> openEventsL, closedEventsL;
 	private ListView openEventsLV, closedEventsLV;
 	private TextView info1TV, info2TV, info3TV, info4TV, op, cl;
 	private ArrayAdapter<String> openEventsLA, closedEventsLA;
@@ -56,15 +58,15 @@ public class PatientEventsList extends Activity implements OnItemClickListener,
 
 		i = getIntent();
 		session = (Infos) i.getSerializableExtra("session");
-		closedEventsL = new String[] { "Bronchite", "Cancer du sein", "Angine" };
-		openEventsL = new String[] { "Alzheimer", "Fracture du bras", "Gastro",
-				"Hypertension" };
+		closedEventsL = new ArrayList<String>();
+		openEventsL = new ArrayList<String>();
 		openEventsLA = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, openEventsL);
 		closedEventsLA = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, closedEventsL);
 
 		setInfosPatient(session.getActivePatient());
+		setPatientsList(session.getActivePatient());
 		closedEventsLV.setAdapter(closedEventsLA);
 		openEventsLV.setAdapter(openEventsLA);
 		closedEventsLV.setOnItemClickListener(this);
@@ -85,12 +87,12 @@ public class PatientEventsList extends Activity implements OnItemClickListener,
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
 		if (parent == openEventsLV) {
-			session.setActiveEvent(openEventsL[pos]);
+			session.setActiveEvent(openEventsL.get(pos));
 			i = new Intent(view.getContext(), PatientEventModification.class);
 			i.putExtra("session", session);
 			startActivity(i);
 		} else if (parent == closedEventsLV) {
-			session.setActiveEvent(closedEventsL[pos]);
+			session.setActiveEvent(closedEventsL.get(pos));
 			i = new Intent(view.getContext(), EventVisualization.class);
 			i.putExtra("session", session);
 			startActivity(i);
@@ -103,53 +105,75 @@ public class PatientEventsList extends Activity implements OnItemClickListener,
 		ds.open();
 		Cursor c = ds.selectWhere(DataSource.TBL_PERSON, "fName", "NoAss = \""
 				+ user + "\"");
-		firstname = checkAndGet("fName", c);
+		firstname = checkAndGetFirst("fName", c);
 		c = ds.selectWhere(DataSource.TBL_PERSON, "mName", "NoAss = \"" + user
 				+ "\"");
-		middlename = checkAndGet("mName", c);
+		middlename = checkAndGetFirst("mName", c);
 		c = ds.selectWhere(DataSource.TBL_PERSON, "lName", "NoAss = \"" + user
 				+ "\"");
-		lastname = checkAndGet("lName", c);
+		lastname = checkAndGetFirst("lName", c);
 		c = ds.selectWhere(DataSource.TBL_PERSON, "bDate", "NoAss = \"" + user
 				+ "\"");
-		birthdate = checkAndGet("bDate", c);
+		birthdate = checkAndGetFirst("bDate", c);
 		c = ds.selectWhere(DataSource.TBL_PERSON, "sex", "NoAss = \"" + user
 				+ "\"");
-		sex = checkAndGet("sex", c);
+		sex = checkAndGetFirst("sex", c);
 		c = ds.selectWhere(DataSource.TBL_PERSON, "streetNo", "NoAss = \""
 				+ user + "\"");
-		String streetNo = checkAndGet("streetNo", c);
+		String streetNo = checkAndGetFirst("streetNo", c);
 		c = ds.selectWhere(DataSource.TBL_PERSON, "street", "NoAss = \"" + user
 				+ "\"");
-		String street = checkAndGet("street", c);
+		String street = checkAndGetFirst("street", c);
 		c = ds.selectWhere(DataSource.TBL_PERSON, "appt", "NoAss = \"" + user
 				+ "\"");
-		String appt = checkAndGet("appt", c);
+		String appt = checkAndGetFirst("appt", c);
 		c = ds.selectWhere(DataSource.TBL_PERSON, "city", "NoAss = \"" + user
 				+ "\"");
-		String city = checkAndGet("city", c);
+		String city = checkAndGetFirst("city", c);
 		c = ds.selectWhere(DataSource.TBL_PERSON, "province", "NoAss = \""
 				+ user + "\"");
-		String province = checkAndGet("province", c);
+		String province = checkAndGetFirst("province", c);
 		c = ds.selectWhere(DataSource.TBL_PERSON, "pc", "NoAss = \"" + user
 				+ "\"");
-		String pc = checkAndGet("pc", c);
+		String pc = checkAndGetFirst("pc", c);
 		c = ds.selectWhere(DataSource.TBL_PERSON, "country", "NoAss = \""
 				+ user + "\"");
-		String country = checkAndGet("country", c);
+		String country = checkAndGetFirst("country", c);
 		c = ds.selectWhere(DataSource.TBL_PERSON, "telno", "NoAss = \"" + user
 				+ "\"");
-		notel = checkAndGet("telno", c);
+		notel = checkAndGetFirst("telno", c);
 		c = ds.selectWhere(DataSource.TBL_PERSON, "email", "NoAss = \"" + user
 				+ "\"");
-		email = checkAndGet("email", c);
+		email = checkAndGetFirst("email", c);
 		ds.close();
 		address = ((appt.equals("")) ? "" : ("Appt. " + appt + " ")) + streetNo
 				+ " " + street + ",\n\t" + city + ", " + province + ", "
 				+ country + ",\n\t" + pc;
 	}
 
-	private String checkAndGet(String s, Cursor c) {
+	private void setPatientsList(String patient) {
+		DataSource ds = new DataSource(this);
+		ds.open();
+		Cursor c = ds.selectWhere(DataSource.TBL_DOSSIER, "DossierNo",
+				"NoAss = \""+patient+"\"");
+		String noDossier = checkAndGetFirst("DossierNo", c) ;
+		c = ds.selectWhere(DataSource.TBL_EVENT, "Descr, CloseDate",
+				"DossierNo = \""+noDossier+"\"");
+		if (c != null && c.getCount() > 0 && c.moveToFirst()) {
+			for (int i = 0; i < c.getCount(); i++) {
+				if(c.getString(c.getColumnIndex("CloseDate")) == "")
+					openEventsL.add(c.getString(c.getColumnIndex("Descr")));
+				else
+					closedEventsL.add(c.getString(c.getColumnIndex("Descr")));
+				c.moveToNext();
+			}
+		} else {
+			System.err.println("Aucun Event n'a été trouvé.");
+		}
+		ds.close();
+	}
+	
+	private String checkAndGetFirst(String s, Cursor c) {
 		if (c != null && c.getCount() > 0 && c.moveToFirst())
 			return c.getString(c.getColumnIndex(s));
 		return "";

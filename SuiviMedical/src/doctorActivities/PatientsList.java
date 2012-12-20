@@ -88,6 +88,7 @@ public class PatientsList extends Activity implements OnItemClickListener {
 				"fName = \""+fName+"\" AND lName = \""+lName+"\"");
 		if (c != null && c.getCount() > 0 && c.moveToFirst())
 			session.setActivePatient(c.getString(c.getColumnIndex("NoAss")));
+		ds.close();
 		i.putExtra("session", session);
 		startActivity(i);
 	}
