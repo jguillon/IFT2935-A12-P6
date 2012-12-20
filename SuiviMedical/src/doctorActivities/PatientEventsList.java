@@ -2,7 +2,6 @@ package doctorActivities;
 
 import java.util.ArrayList;
 
-import sam.SuiviMedical.GraphActivity;
 import sam.SuiviMedical.Infos;
 import sam.SuiviMedical.R;
 import android.app.Activity;
@@ -36,9 +35,9 @@ public class PatientEventsList extends Activity implements OnItemClickListener,
 	private ArrayAdapter<String> openEventsLA, closedEventsLA;
 	private Infos session;
 	private Button addEvent;
-	private Button showStatus;
-	private String firstname, lastname, middlename, birthdate,
-			sex, address, notel, email;
+	// TODO private Button showStatus;
+	private String firstname, lastname, middlename, birthdate, sex, address,
+			notel, email;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -54,7 +53,7 @@ public class PatientEventsList extends Activity implements OnItemClickListener,
 		op = (TextView) findViewById(R.id.textOpenEvent);
 		cl = (TextView) findViewById(R.id.textEventClosed);
 		addEvent = (Button) findViewById(R.id.addEvent);
-		//TODO showStatus = (Button) findViewById(R.id.);
+		// TODO showStatus = (Button) findViewById(R.id.);
 
 		i = getIntent();
 		session = (Infos) i.getSerializableExtra("session");
@@ -74,7 +73,7 @@ public class PatientEventsList extends Activity implements OnItemClickListener,
 		op.setOnClickListener(this);
 		cl.setOnClickListener(this);
 		addEvent.setOnClickListener(this);
-		showStatus.setOnClickListener(this);
+		// TODO showStatus.setOnClickListener(this);
 		closedEventsLV.setVisibility(View.GONE);
 		openEventsLV.setVisibility(View.GONE);
 		info1TV.setText(firstname + " " + middlename + " " + lastname);
@@ -195,11 +194,11 @@ public class PatientEventsList extends Activity implements OnItemClickListener,
 				closedEventsLV.setVisibility(View.VISIBLE);
 			else
 				closedEventsLV.setVisibility(View.GONE);
-		} else if (v == showStatus) {
-			i = new Intent(v.getContext(), GraphActivity.class);
-			i.putExtra("session", session);
-			startActivity(i);
-		}
+		} // TODO else if (v == showStatus) {
+		// i = new Intent(v.getContext(), GraphActivity.class);
+		// i.putExtra("session", session);
+		// startActivity(i);
+		// }
 	}
 
 }
