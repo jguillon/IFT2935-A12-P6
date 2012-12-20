@@ -40,7 +40,7 @@ public class SuiviMedicalActivity extends Activity implements OnClickListener {
 		
 		String login = loginET.getText().toString();
 		String pswd = passwordET.getText().toString();
-		login = "TROA30036422"; //TODO A supprimer
+		login = "TROA30036422"; //TODO A supprimer ou remplacer par patient : PAIT10513437, docteur : TROA30036422
 		pswd = login; //TODO A modifier
 		//On déclare un curseur sur la table retournée par la requête SQL
 		Cursor roleC = ds.selectWhere(DataSource.TBL_ROLE, "PersonRole", "NoAss = \""+login+"\"");

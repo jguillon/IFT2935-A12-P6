@@ -1,5 +1,6 @@
 package doctorActivities;
 
+import patientActivities.PatientEvent;
 import sam.SuiviMedical.GraphActivity;
 import sam.SuiviMedical.Infos;
 import sam.SuiviMedical.R;
@@ -58,7 +59,7 @@ public class PatientEventModification extends Activity implements
 	@Override
 	public void onClick(View view) {
 		if (view == visualizationB) {
-			Intent i = new Intent(view.getContext(), EventVisualization.class);
+			Intent i = new Intent(view.getContext(), PatientEvent.class);
 			i.putExtra("session", session);
 			startActivity(i);
 		} else if (view == reportB) {

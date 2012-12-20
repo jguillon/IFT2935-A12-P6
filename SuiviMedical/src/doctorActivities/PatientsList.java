@@ -2,6 +2,8 @@ package doctorActivities;
 
 import java.util.ArrayList;
 
+import patientActivities.PatientFile;
+
 import sam.SuiviMedical.Infos;
 import sam.SuiviMedical.R;
 import android.app.Activity;
@@ -80,7 +82,7 @@ public class PatientsList extends Activity implements OnItemClickListener {
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-		Intent i = new Intent(view.getContext(), PatientEventsList.class);
+		Intent i = new Intent(view.getContext(), PatientFile.class);
 		DataSource ds = new DataSource(this);
 		ds.open();
 		String fName = patientsL.get(pos).split(" ")[0], lName = patientsL.get(pos).split(" ")[1];

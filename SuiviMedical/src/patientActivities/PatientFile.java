@@ -22,6 +22,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import database.DataSource;
+import doctorActivities.PatientEventModification;
 
 public class PatientFile extends Activity implements OnItemClickListener {
 
@@ -43,7 +44,10 @@ public class PatientFile extends Activity implements OnItemClickListener {
 		i = getIntent();
 		session = (Infos) i.getSerializableExtra("session");
 		ds = new DataSource(this);
-		setInfosPatient(session.getUser());
+		if (session.getUserPermission().equals("Doctor"))
+			setInfosPatient(session.getActivePatient());
+		else
+			setInfosPatient(session.getUser());
 
 		info1 = (TextView) findViewById(R.id.info1Patient);
 		info2 = (TextView) findViewById(R.id.info2Patient);
@@ -65,6 +69,11 @@ public class PatientFile extends Activity implements OnItemClickListener {
 		Button addButton = (Button) findViewById(R.id.addEvent);
 		addButton.setVisibility(View.GONE);
 
+		if (session.getUserPermission().equals("Doctor"))
+			setLists(session.getActivePatient());
+		else
+			setLists(session.getUser());
+
 		op.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -84,8 +93,6 @@ public class PatientFile extends Activity implements OnItemClickListener {
 					closedEventsLV.setVisibility(View.GONE);
 			}
 		});
-
-		this.setLists(session.getUser());
 
 	}
 
@@ -210,7 +217,11 @@ public class PatientFile extends Activity implements OnItemClickListener {
 	public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
 		if (parent == openEventsLV) {
 			session.setActiveEvent(openEventsL.get(pos).get("EventNo"));
-			i = new Intent(view.getContext(), PatientEvent.class);
+			if (session.getUserPermission().equals("Doctor"))
+				i = new Intent(view.getContext(),
+						PatientEventModification.class);
+			else
+				i = new Intent(view.getContext(), PatientEvent.class);
 			i.putExtra("session", session);
 			startActivity(i);
 			// Toast.makeText(PatientFile.this, "pos :" + pos + " EventNo : " +
@@ -218,7 +229,11 @@ public class PatientFile extends Activity implements OnItemClickListener {
 			// session.getActiveEvent(), Toast.LENGTH_LONG).show();
 		} else if (parent == closedEventsLV) {
 			session.setActiveEvent(closedEventsL.get(pos).get("EventNo"));
-			i = new Intent(view.getContext(), PatientEvent.class);
+			if (session.getUserPermission().equals("Doctor"))
+				i = new Intent(view.getContext(),
+						PatientEventModification.class);
+			else
+				i = new Intent(view.getContext(), PatientEvent.class);
 			i.putExtra("session", session);
 			startActivity(i);
 		}

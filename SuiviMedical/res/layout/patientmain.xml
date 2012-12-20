@@ -42,7 +42,8 @@
             android:text="@string/bDrugsP" android:textSize="20dp" android:gravity="bottom|center" android:layout_weight="1"
             android:drawableTop="@drawable/patient_meds" 
             android:paddingTop="40dp"/>
-
+
+
         <Button
             android:id="@+id/bSkypeP"
             android:layout_width="match_parent"
