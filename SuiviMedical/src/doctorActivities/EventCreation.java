@@ -57,12 +57,14 @@ public class EventCreation extends Activity {
 				String openDate = d.getYear()+"-"+d.getMonth()+"-"+d.getDate();
 				String descr = descrET.getText().toString();
 				HashMap<String, Object> insertTable = new HashMap<String, Object>();
-				insertTable.put("EventNo", Integer.toString(max+1));
+				insertTable.put("EventNo", max+1);
 				insertTable.put("DossierNo", dossierNo);
 				insertTable.put("OpenDate", openDate);
-				insertTable.put("CloseDate", "");
+				insertTable.put("CloseDate", "NULL");
 				insertTable.put("Descr", descr);
-				ds.insert(DataSource.TBL_EVENT, insertTable);
+				String q = "INSERT INTO "+DataSource.TBL_EVENT+" VALUES ('"+
+							(max+1)+"','"+dossierNo+"','"+openDate+"','NULL','"+descr+"');";
+				ds.rawQuery(q);
 				ds.close();
 				simpleAD.setMessage("L'évènement a été ajouté au dossier.");
 				simpleAD.setCancelable(false);

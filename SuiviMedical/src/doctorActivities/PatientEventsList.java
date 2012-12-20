@@ -160,9 +160,9 @@ public class PatientEventsList extends Activity implements OnItemClickListener,
 				"DossierNo = \"" + noDossier + "\"");
 		if (c != null && c.getCount() > 0 && c.moveToFirst()) {
 			for (int i = 0; i < c.getCount(); i++) {
-				if (c.getString(c.getColumnIndex("CloseDate")) == "")
+				if (c.getString(c.getColumnIndex("CloseDate")).equals("NULL")) {
 					openEventsL.add(c.getString(c.getColumnIndex("Descr")));
-				else
+				} else
 					closedEventsL.add(c.getString(c.getColumnIndex("Descr")));
 				c.moveToNext();
 			}

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    /*setTitle("Nom du patient");*/
+
+    
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" android:layout_weight="1">
+
+        <Button
+            android:id="@+id/blood"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/blood_ic"
+            android:gravity="bottom|center"
+            android:text="@string/blood"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/urinalysis"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/laboratory_ic"
+            android:gravity="bottom|center"
+            android:text="@string/urinalysis"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" android:layout_weight="1">
+
+        <Button
+            android:id="@+id/x_ray"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/x_ray_ic"
+            android:gravity="bottom|center"
+            android:text="@string/xray"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/biopsy"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/microscope_ic"
+            android:gravity="bottom|center"
+            android:text="@string/biopsy"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" android:layout_weight="1">
+
+        <Button
+            android:id="@+id/glucose"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/glucose_ic"
+            android:gravity="bottom|center"
+            android:text="@string/glucose"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/psy"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/brain_ic"
+            android:gravity="bottom|center"
+            android:text="@string/psy"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

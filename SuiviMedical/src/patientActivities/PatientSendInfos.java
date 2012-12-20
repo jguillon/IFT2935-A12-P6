@@ -101,22 +101,21 @@ public class PatientSendInfos extends Activity {
 			@Override
 			public void onClick(View view) {
 				if (!value.getText().toString().matches("")) {
+
 					// On vérifie et envoie les données à la base
 					if (pos == 0 || pos == 1) {
-						//Double d = 0.0;
+						Double d;
 						try {
-							//d = Double.parseDouble(value.getText().toString());
-							// TODO Envoyer d dans la DB
+							d = Double.parseDouble(value.getText().toString());
 							showConfirMessage("Vos informations ont été envoyées à votre médecin.");
 						} catch (NumberFormatException nfe) {
 							showErrorMessage("Veuillez entrer une valeur numérique. Pour les nombres décimaux, utilisez le point (.) et non la virgule (,).");
 						}
 
 					} else {
-						//int i = 0;
+						int i;
 						try {
-							//i = Integer.parseInt(value.getText().toString());
-							// TODO Envoyer i dans la DB
+							i = Integer.parseInt(value.getText().toString());
 							showConfirMessage("Vos informations ont été envoyées à votre médecin.");
 						} catch (NumberFormatException nfe) {
 							showErrorMessage("Veuillez entrer une valeur numérique entière.");
