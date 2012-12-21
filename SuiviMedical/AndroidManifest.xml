@@ -7,7 +7,7 @@
     <uses-sdk android:minSdkVersion="10" />
 
     <application
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/doctor_ic"
         android:label="@string/app_name" >
         <activity
             android:name=".SuiviMedicalActivity"
@@ -18,166 +18,51 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="patientActivities.PatientMainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name="patientActivities.PatientMainActivity" >
+        </activity>
+        <activity android:name="doctorActivities.ReportCreation" >
+        </activity>
+        <activity android:name="patientActivities.PatientFile" >
+        </activity>
+        <activity android:name="patientActivities.PatientMeds" >
+        </activity>
+        <activity android:name="sam.SuiviMedical.GraphActivity" >
+        </activity>
+        <activity android:name="patientActivities.PatientSendInfos" >
+        </activity>
+        <activity android:name="doctorActivities.EventVisualization" >
+        </activity>
+        <activity android:name="doctorActivities.PrescriptionCreation" >
+        </activity>
+        <activity android:name="doctorActivities.DiagnosisCreation" >
+        </activity>
+        <activity android:name="doctorActivities.ActionRequest" >
+        </activity>
+        <activity android:name="patientActivities.PatientSkype" >
+        </activity>
+        <activity android:name="doctorActivities.PatientsList" >
+        </activity>
+        <activity android:name="doctorActivities.PatientEventsList" >
+        </activity>
+        <activity android:name="doctorActivities.PatientEventModification" >
+        </activity>
+        <activity android:name="patientActivities.PatientMedscc" >
+        </activity>
+        <activity android:name="patientActivities.PatientEvent" >
+        </activity>
+        <activity android:name="doctorActivities.EventCreation" >
+        </activity>
+        <activity android:name="doctorActivities.Prescription" >
+        </activity>
+        <activity android:name="doctorActivities.DoctorMedsc" >
         </activity>
         <activity
-            android:name="doctorActivities.ReportCreation">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".phonecalls"
+            android:label="@string/app_name" >
         </activity>
-                <activity
-            android:name="patientActivities.PatientFile" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-                        <activity
-            android:name="patientActivities.PatientMeds" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="sam.SuiviMedical.GraphActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-                        <activity
-            android:name="patientActivities.PatientSendInfos">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="doctorActivities.EventVisualization">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="doctorActivities.PrescriptionCreation">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="doctorActivities.DiagnosisCreation">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="doctorActivities.ActionRequest">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-                                <activity
-            android:name="patientActivities.PatientSkype" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-            <activity
-            android:name="doctorActivities.PatientsList" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-           <activity
-            android:name="doctorActivities.PatientEventsList">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-           <activity
-            android:name="doctorActivities.PatientEventModification">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="patientActivities.PatientMedscc">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-         <activity
-            android:name="patientActivities.PatientEvent">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-                 <activity
-            android:name="doctorActivities.EventCreation">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-         <activity
-            android:name="doctorActivities.Prescription">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="doctorActivities.DoctorMedsc">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-            <activity android:name=".phonecalls"
-                  android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-            
     </application>
-	<uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+
+    <uses-permission android:name="android.permission.CALL_PHONE" >
+    </uses-permission>
+
 </manifest>
